@@ -4,9 +4,7 @@ export var speed = 250
 export var radius = 15
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	add_to_group("players")
 
 func _physics_process(delta):
 	var velocity = Vector2() # The player's movement vector.
