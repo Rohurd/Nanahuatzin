@@ -44,6 +44,6 @@ size_flags_vertical = 1
 color = Color( 0.0292664, 0.535156, 0, 1 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="Node" parent="." index="2" instance=ExtResource( 2 )]
+[node name="TowerBuildingAbility" parent="." index="2" instance=ExtResource( 2 )]
 
 
