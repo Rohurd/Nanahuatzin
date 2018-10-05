@@ -1,25 +1,24 @@
-extends Area2D
+extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-export var speed = 1
+export var speed = 250
+export var radius = 15
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
 
-func _process(delta):
+func _physics_process(delta):
 	var velocity = Vector2() # The player's movement vector.
-	if Input.is_action_pressed("square_right"):
+	var projectResolution=get_viewport().size
+	if Input.is_action_pressed("square_right") && position.x <= projectResolution.x - radius:
 		velocity.x += 1
-	if Input.is_action_pressed("square_left"):
+	if Input.is_action_pressed("square_left") && position.x >= radius:
 		velocity.x -= 1
-	if Input.is_action_pressed("square_down"):
+	if Input.is_action_pressed("square_down") && position.y <= projectResolution.y - radius:
 		velocity.y += 1
-	if Input.is_action_pressed("square_up"):
+	if Input.is_action_pressed("square_up") && position.y >= radius:
 		velocity.y -= 1
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-	position += velocity * delta
+	move_and_slide(velocity)
