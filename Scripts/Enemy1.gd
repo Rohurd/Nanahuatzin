@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 var players
 var target
 var target_pos = Vector2(0,0)
 export var speed = 100
+var target_rotation = 0
+var default_direction = Vector2(1, 0)
+export var rotation_speed = 2* PI
+
+var rot_epsilon = 1.5* rotation_speed/60
 
 func _ready():
 	players = get_tree().get_nodes_in_group("players")
@@ -28,9 +30,20 @@ func _process(delta):
 	
 func _physics_process(delta):
 	target = _get_nearest_player()
-	print(target)
 	target_pos = target.position
 	var velocity = (target_pos - position).normalized()
+	target_rotation = -velocity.angle_to(default_direction)
+	var drot = target_rotation - rotation
+	if abs(drot) < rot_epsilon:
+		rotation = target_rotation
+	elif drot < -PI:
+		rotation += rotation_speed*delta
+	elif drot < 0:
+		rotation -= rotation_speed*delta
+	elif drot < PI:
+		rotation += rotation_speed*delta
+	else:
+		rotation -= rotation_speed*delta
 	velocity = velocity * speed
 	move_and_slide(velocity)
 
