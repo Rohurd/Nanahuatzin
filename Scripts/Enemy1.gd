@@ -28,6 +28,12 @@ func _physics_process(delta):
 	target_pos = target.position
 	var velocity = (target_pos - position).normalized()
 	move_rotate(velocity,delta)
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		var player = collision.collider
+		if player.is_in_group("players"):
+			player.setHealth(player.health -1)
+			queue_free()
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
