@@ -17,6 +17,7 @@ collision/safe_margin = 0.08
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 

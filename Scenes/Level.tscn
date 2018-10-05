@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy1.tscn" type="PackedScene" id=3]
 
-[node name="Level" type="Node2D" index="0"]
+[node name="Level" type="Node2D"]
 
 [node name="Square" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -20,6 +20,8 @@ rotation_speed = 6.28319
 [node name="KinematicBody2D" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 215.454, 131.944 )
+speed = 250
+radius = 15
 rotation_speed = 6.28319
 
 
