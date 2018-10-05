@@ -1,25 +1,28 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Square.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemy1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=4]
 
-[node name="Level" type="Node2D" index="0"]
+[node name="Level" type="Node2D"]
 
 [node name="Square" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 231.579, 250.415 )
+position = Vector2( 95.5807, 306.051 )
 speed = 250
 
 [node name="Triangle" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 375.463, 186.371 )
+position = Vector2( 197.281, 453.433 )
 speed = 250
-rotation_speed = 6.28319
 
 [node name="KinematicBody2D" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 215.454, 131.944 )
-rotation_speed = 6.28319
+position = Vector2( 969.641, 51.0618 )
+
+[node name="Health" parent="." index="3" instance=ExtResource( 4 )]
+
+[connection signal="health_changed" from="Triangle" to="Health" method="health_changed"]
 
 

@@ -45,7 +45,15 @@ func _physics_process(delta):
 	else:
 		rotation -= rotation_speed*delta
 	velocity = velocity * speed
-	move_and_slide(velocity)
+	var collision = move_and_collide(velocity*delta)
+	
+	if collision != null:
+
+		var player = collision.collider
+		print(player)
+		if player.is_in_group("players"):
+			player.setHealth(player.health -1)
+			queue_free()
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

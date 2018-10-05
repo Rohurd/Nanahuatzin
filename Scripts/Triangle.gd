@@ -2,6 +2,12 @@ extends KinematicBody2D
 
 export var speed = 250
 export var radius = 15
+
+export var health = 5 setget setHealth
+export var max_health = 5
+
+signal health_changed(player)
+
 var target_rotation = 0
 var default_direction = Vector2(1, 0)
 export var rotation_speed = 2* PI
@@ -10,6 +16,14 @@ var rot_epsilon = 1.5* rotation_speed/60
 
 func _ready():
 	add_to_group("players")
+	emit_signal("health_changed", self)
+	
+func setHealth(value):
+	print(value)
+	if value != health:
+		health = value
+		emit_signal("health_changed", self)
+
 
 func _physics_process(delta):
 	var velocity = Vector2() # The player's movement vector.
