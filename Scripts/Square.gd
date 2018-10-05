@@ -1,19 +1,22 @@
-extends KinematicBody2D
+extends "res://Scripts/Movement_Rotation.gd"
 
-export var speed = 250
-export var radius = 15
-var target_rotation = 0
-var default_direction = Vector2(1, 0)
-export var rotation_speed = 2* PI
+export var health = 5 setget setHealth
+export var max_health = 5
 
-var rot_epsilon = 1.5* rotation_speed/60
+signal health_changed(player)
 
 func _ready():
 	add_to_group("players")
+	emit_signal("health_changed", self)
+
+func setHealth(value):
+	print(value)
+	if value != health:
+		health = value
+		emit_signal("health_changed", self)
 
 func _physics_process(delta):
 	var velocity = Vector2() # The player's movement vector.
-	var projectResolution=get_viewport().size
 	if Input.is_action_pressed("square_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("square_left"):
@@ -22,24 +25,12 @@ func _physics_process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("square_up"):
 		velocity.y -= 1
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		target_rotation = -velocity.angle_to(default_direction)
-	else:
-		target_rotation = rotation
-	var drot = target_rotation - rotation
+	move_rotate(velocity, delta)
 	
-
-	if abs(drot) < rot_epsilon:
-		rotation = target_rotation
-	elif drot < -PI:
-		rotation += rotation_speed*delta
-	elif drot < 0:
-		rotation -= rotation_speed*delta
-	elif drot < PI:
-		rotation += rotation_speed*delta
-	else:
-		rotation -= rotation_speed*delta
-	move_and_slide(velocity)
-	position.x = clamp(position.x, radius, projectResolution.x - radius)
-	position.y = clamp(position.y, radius, projectResolution.y - radius)
+	if Input.is_action_just_pressed("square_shoot"):
+		var scene = load("res://Scenes/Bullet.tscn")
+		var scene_instance = scene.instance()
+		scene_instance.set_name("bullet")
+		scene_instance.set_position(Vector2(20,0).rotated(rotation) + position)
+		scene_instance.init(Vector2(10,0).rotated(rotation))
+		get_parent().add_child(scene_instance)

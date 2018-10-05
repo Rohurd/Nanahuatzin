@@ -1,16 +1,11 @@
-extends KinematicBody2D
+extends "res://Scripts/Movement_Rotation.gd"
 
 var players
 var target
 var target_pos = Vector2(0,0)
-export var speed = 100
-var target_rotation = 0
-var default_direction = Vector2(1, 0)
-export var rotation_speed = 2* PI
-
-var rot_epsilon = 1.5* rotation_speed/60
 
 func _ready():
+	speed = 150
 	players = get_tree().get_nodes_in_group("players")
 
 func _get_nearest_player():
@@ -32,25 +27,10 @@ func _physics_process(delta):
 	target = _get_nearest_player()
 	target_pos = target.position
 	var velocity = (target_pos - position).normalized()
-	target_rotation = -velocity.angle_to(default_direction)
-	var drot = target_rotation - rotation
-	if abs(drot) < rot_epsilon:
-		rotation = target_rotation
-	elif drot < -PI:
-		rotation += rotation_speed*delta
-	elif drot < 0:
-		rotation -= rotation_speed*delta
-	elif drot < PI:
-		rotation += rotation_speed*delta
-	else:
-		rotation -= rotation_speed*delta
-	velocity = velocity * speed
-	var collision = move_and_collide(velocity*delta)
-	
-	if collision != null:
-
+	move_rotate(velocity,delta)
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
 		var player = collision.collider
-		print(player)
 		if player.is_in_group("players"):
 			player.setHealth(player.health -1)
 			queue_free()
