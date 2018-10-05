@@ -15,9 +15,11 @@ speed = 250
 
 position = Vector2( 375.463, 186.371 )
 speed = 250
+rotation_speed = 6.28319
 
 [node name="KinematicBody2D" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 215.454, 131.944 )
+rotation_speed = 6.28319
 
 
