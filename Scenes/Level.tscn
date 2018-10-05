@@ -9,12 +9,10 @@
 
 position = Vector2( 231.579, 250.415 )
 speed = 250
-radius = 15
 
 [node name="Triangle" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 375.463, 186.371 )
 speed = 250
-radius = 15
 
 
