@@ -69,4 +69,3 @@ func destroy():
 	if is_in_group("enemy") && ($"/root/Level/Spawn_Enemies").enemies_on_screen > 0:
 		($"/root/Level/Spawn_Enemies").enemies_on_screen -= 1
 	queue_free()
-

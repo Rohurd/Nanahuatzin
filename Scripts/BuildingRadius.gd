@@ -19,6 +19,8 @@ func area_left(other):
 	if other.is_in_group("SoonToBeTower"):
 		possible_buildings.erase(other)
 		other.unmark()
+		if len(possible_buildings) > 0:
+			possible_buildings[0].mark()
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
