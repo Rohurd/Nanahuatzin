@@ -11,7 +11,6 @@ func _ready():
 	
 func attack():
 	var scene = load("res://Scenes/attacksquare.tscn")
-	print(scene)
 	var attack = scene.instance()
 	add_child(attack)
 	
