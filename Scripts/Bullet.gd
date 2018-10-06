@@ -7,6 +7,7 @@ var velocity
 var owner_group
 
 func _ready():
+	add_to_group("bullet")
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
