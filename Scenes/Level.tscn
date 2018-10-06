@@ -12,13 +12,15 @@
 
 position = Vector2( 95.5807, 306.051 )
 speed = 250
-health = 5
-max_health = 5
+max_health = 1
+health = 1
 
 [node name="Triangle" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 197.281, 453.433 )
 speed = 250
+max_health = 1
+health = 1
 
 [node name="HUD" type="CanvasLayer" parent="." index="2"]
 
@@ -39,7 +41,7 @@ anchor_right = 1.0
 margin_left = -40.0
 margin_right = 0.0
 grow_horizontal = 0
-_sections_unfolded = [ "Anchor", "Grow Direction" ]
+_sections_unfolded = [ "Grow Direction" ]
 
 [node name="Time" parent="HUD" index="2" instance=ExtResource( 4 )]
 
@@ -47,7 +49,6 @@ anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -150.0
 margin_right = 150.0
-pause = false
 
 [node name="Spawn_Enemies" parent="." index="3" instance=ExtResource( 5 )]
 

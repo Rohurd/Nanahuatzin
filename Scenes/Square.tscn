@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 15, 15 )
 
-[node name="Square" type="KinematicBody2D" index="0"]
+[node name="Square" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -18,6 +18,8 @@ script = ExtResource( 1 )
 speed = 500
 radius = 15
 rotation_speed = 6.28319
+max_health = 1
+health = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
