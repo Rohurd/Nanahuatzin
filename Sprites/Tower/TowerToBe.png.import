@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TowerToBe.png-157c63c4ce5166e8477e603e8aabd91a.stex"
+path="res://.import/TowerToBe.png-33258268cf0aa815f45f0923ad94a7ee.stex"
 
 [deps]
 
-source_file="res://Textures/TowerToBe.png"
-dest_files=[ "res://.import/TowerToBe.png-157c63c4ce5166e8477e603e8aabd91a.stex" ]
+source_file="res://Sprites/Tower/TowerToBe.png"
+dest_files=[ "res://.import/TowerToBe.png-33258268cf0aa815f45f0923ad94a7ee.stex" ]
 
 [params]
 

@@ -18,7 +18,7 @@ func _process(delta):
 	time += delta
 	if time >= 5.0 :
 		while !($"/root/Level/HUD/Time").pause && enemies_on_screen < max_enemies && $"/root/Level".players_alive > 0:
-			var scene = load("res://Scenes/Enemy" + str(randi() % 2 + 1) + ".tscn")
+			var scene = load("res://Scenes/Enemy" + str(randi() % 3 + 1) + ".tscn")
 			var scene_instance = scene.instance()
 			scene_instance.set_name("enemy")
 			var x = 0

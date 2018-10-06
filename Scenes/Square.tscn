@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 15, 15 )
 
-[node name="Square" type="KinematicBody2D"]
+[node name="Square" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -47,5 +47,8 @@ color = Color( 0.0292664, 0.535156, 0, 1 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="TowerBuildingAbility" parent="." index="2" instance=ExtResource( 2 )]
+
+visible = false
+_sections_unfolded = [ "Visibility" ]
 
 
