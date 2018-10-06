@@ -1,30 +1,83 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Square.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Time.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/TimeBar/progress.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Square.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Time.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Shader" id=3]
+
+code = "shader_type canvas_item;
+render_mode blend_add;
+
+uniform vec4 topcolor = vec4(0.14, 0.2, 0.5, 1.0);
+uniform vec4 botcolor = vec4(0.0, 0.0, 0.4, 1.0);
+uniform float cutoff = 0.8;
+uniform float xspacing = 50;
+uniform float yyspacing = 15;
+uniform float yspacing = 50;
+uniform float tspacing = 0.4;
+uniform float tyspacing = 0.4;
+
+void fragment() {
+	vec4 p = FRAGCOORD;
+	float x = p.x/xspacing + p.y/yspacing - tspacing * TIME + 0.3* sin(TIME + 0.01*p.x) * sin(0.1*p.y);
+	float y = p.y/yyspacing;
+	COLOR = vec4(0.0, 0.0, 1.0, 1.0);
+	float dark = sin(x);
+	if (dark > cutoff) {
+		COLOR = topcolor;
+	} else {
+		COLOR = botcolor;
+	}
+	}
+"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ShaderMaterial" id=4]
+
+render_priority = 0
+shader = SubResource( 3 )
+shader_param/topcolor = null
+shader_param/botcolor = null
+shader_param/cutoff = null
+shader_param/xspacing = null
+shader_param/yyspacing = null
+shader_param/yspacing = null
+shader_param/tspacing = null
+shader_param/tyspacing = null
 
 [node name="Level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Material" ]
 players_alive = 2
 
-[node name="Square" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Water" type="Sprite" parent="." index="0"]
+
+show_behind_parent = true
+material = SubResource( 4 )
+position = Vector2( 620, 360 )
+scale = Vector2( 5.66667, 16.9797 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Square" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 170, 310 )
 speed = 250
 
-[node name="Triangle" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Triangle" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 850, 310 )
 speed = 250
 max_health = 1
 health = 1
 
-[node name="HUD" type="CanvasLayer" parent="." index="2"]
+[node name="HUD" type="CanvasLayer" parent="." index="3"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -32,11 +85,11 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="SquareHealth" parent="HUD" index="0" instance=ExtResource( 4 )]
+[node name="SquareHealth" parent="HUD" index="0" instance=ExtResource( 5 )]
 
 alignment = 2
 
-[node name="TriangleHealth" parent="HUD" index="1" instance=ExtResource( 4 )]
+[node name="TriangleHealth" parent="HUD" index="1" instance=ExtResource( 5 )]
 
 anchor_left = 1.0
 anchor_right = 1.0
@@ -45,14 +98,14 @@ margin_right = 0.0
 grow_horizontal = 0
 _sections_unfolded = [ "Grow Direction" ]
 
-[node name="Time" parent="HUD" index="2" instance=ExtResource( 5 )]
+[node name="Time" parent="HUD" index="2" instance=ExtResource( 6 )]
 
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -150.0
 margin_right = 150.0
 
-[node name="Spawn_Enemies" parent="." index="3" instance=ExtResource( 6 )]
+[node name="Spawn_Enemies" parent="." index="4" instance=ExtResource( 7 )]
 
 max_enemies = 2
 enemies_on_screen = 0
