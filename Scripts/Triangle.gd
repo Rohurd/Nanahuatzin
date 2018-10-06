@@ -26,3 +26,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("triangle_up"):
 		velocity.y -= 1
 	move_rotate(velocity, delta)
+	
+	if Input.is_action_just_pressed("square_shoot"):
+		var scene = load("res://Scenes/Bullet.tscn")
+		var scene_instance = scene.instance()
+		scene_instance.set_name("bullet")
+		scene_instance.set_position(Vector2(20,0).rotated(rotation) + position)
+		scene_instance.set_rotation(rotation)
+		scene_instance.init(Vector2(10,0).rotated(rotation))
+		get_parent().add_child(scene_instance)
