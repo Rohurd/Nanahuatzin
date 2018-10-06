@@ -50,7 +50,7 @@ shader_param/yspacing = null
 shader_param/tspacing = null
 shader_param/tyspacing = null
 
-[node name="Level" type="Node2D" index="0"]
+[node name="Level" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material" ]
