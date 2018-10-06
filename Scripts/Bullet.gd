@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 # class member variables go here, for example:
 # var a = 2
@@ -23,3 +23,11 @@ func _physics_process(delta):
 	if position.x > projectResolution.x || position.y > projectResolution.y:
 		queue_free()
 	pass
+	
+func destroy():
+	queue_free()
+	
+func collision_detection(obj):
+	destroy()
+	if obj.is_in_group("enemy"):
+		obj.destroy()

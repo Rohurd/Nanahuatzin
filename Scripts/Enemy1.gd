@@ -5,6 +5,7 @@ var target
 var target_pos = Vector2(0,0)
 
 func _ready():
+	add_to_group("enemy")
 	speed = 150
 	players = get_tree().get_nodes_in_group("players")
 
@@ -22,6 +23,8 @@ func _get_nearest_player():
 func _process(delta):
 	pass
 
+func destroy():
+	queue_free()
 	
 func _physics_process(delta):
 	target = _get_nearest_player()
