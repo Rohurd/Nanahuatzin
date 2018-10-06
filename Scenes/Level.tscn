@@ -5,14 +5,12 @@
 [ext_resource path="res://Scenes/Enemy1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=4]
 
-[node name="Level" type="Node2D" index="0"]
+[node name="Level" type="Node2D"]
 
 [node name="Square" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 95.5807, 306.051 )
 speed = 250
-health = 5
-max_health = 5
 
 [node name="Triangle" parent="." index="1" instance=ExtResource( 2 )]
 

@@ -14,6 +14,7 @@ func setHealth(value):
 	if value != health:
 		health = value
 		emit_signal("health_changed", self)
+		
 
 func _physics_process(delta):
 	var velocity = Vector2() # The player's movement vector.
