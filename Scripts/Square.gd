@@ -1,6 +1,8 @@
 extends "res://Scripts/Entity.gd"
 
 signal health_changed(player)
+export var attack_cd = 0.5
+var attacking = false
 
 func _ready():
 	health = 5
@@ -10,9 +12,15 @@ func _ready():
 	emit_signal("health_changed", self)
 	
 func attack():
-	var scene = load("res://Scenes/attacksquare.tscn")
-	var attack = scene.instance()
-	add_child(attack)
+	if not attacking:
+		attacking = true
+		var old_speed = speed
+		speed = 20
+		$ShieldAbility.activate()
+		yield($ShieldAbility, "finished")
+		speed = old_speed
+		yield(get_tree().create_timer(attack_cd), "timeout")
+		attacking = false
 	
 func _process(delta):
 	if Input.is_action_just_pressed("square_attack"):

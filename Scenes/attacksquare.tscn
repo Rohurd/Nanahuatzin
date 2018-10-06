@@ -13,7 +13,7 @@ shader_param/t = null
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 70.0
+radius = 82.0
 
 [node name="SquareAttack" type="Area2D" index="0"]
 
@@ -25,6 +25,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 total_length = 1.0
 tween_length = 0.1
 
@@ -32,23 +33,16 @@ tween_length = 0.1
 
 modulate = Color( 0, 1, 0.203125, 1 )
 material = SubResource( 1 )
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="Collision" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
 shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Timer" type="Timer" parent="." index="2"]
-
-process_mode = 1
-wait_time = 0.3
-one_shot = true
-autostart = false
-
-[node name="Tween" type="Tween" parent="." index="3"]
+[node name="Tween" type="Tween" parent="." index="2"]
 
 repeat = false
 playback_process_mode = 1
@@ -60,8 +54,10 @@ _sections_unfolded = [ "playback" ]
 
 [connection signal="area_entered" from="." to="." method="on_collide"]
 
+[connection signal="area_exited" from="." to="." method="on_exit"]
+
 [connection signal="body_entered" from="." to="." method="on_collide"]
 
-[connection signal="timeout" from="Timer" to="." method="activate"]
+[connection signal="body_exited" from="." to="." method="on_exit"]
 
 

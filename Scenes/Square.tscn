@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Square.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Tower_Building_Ability.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/ship_attack.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/attacksquare.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -10,7 +11,7 @@ custom_solver_bias = 0.0
 radius = 13.2393
 height = 24.3854
 
-[node name="Square" type="KinematicBody2D"]
+[node name="Square" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -22,6 +23,7 @@ radius = 15
 rotation_speed = 6.28319
 max_health = 1
 health = 1
+attack_cd = 0.5
 
 [node name="TowerBuildingAbility" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -40,5 +42,7 @@ _sections_unfolded = [ "Offset", "Transform" ]
 rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="ShieldAbility" parent="." index="3" instance=ExtResource( 4 )]
 
 
