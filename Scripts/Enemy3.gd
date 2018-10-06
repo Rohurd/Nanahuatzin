@@ -1,6 +1,5 @@
 extends "res://Scripts/Entity.gd"
 
-var players
 var target
 var target_pos = Vector2(0,0)
 
@@ -9,16 +8,16 @@ func _ready():
 	speed = 100
 	health = 3
 	max_health = 3
-	players = get_tree().get_nodes_in_group("player")
 	
 func _physics_process(delta):
-	target_pos = _get_nearest_player(players)
+	target_pos = _get_nearest_player()
 	var velocity = (target_pos - position).normalized()
-	move_rotate(velocity,delta)
+	rotate(velocity, delta, self)
+	move(velocity,delta)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		var player = collision.collider
-		if player.is_in_group("player") && player.health > 0:
+		if (player.is_in_group("player") || player.is_in_group("tower")) && player.health > 0:
 			player.setHealth(player.health-1)
 			destroy()
 

@@ -10,32 +10,41 @@ export var health = 1 setget setHealth
 
 var rot_epsilon = 1.5* rotation_speed/60
 
-func move_rotate(velocity,delta):
+func rotate(velocity, delta, to_rotate):
+	if to_rotate.rotation > PI:
+		to_rotate.rotation -= 2*PI
+	if to_rotate.rotation < -PI:
+		to_rotate.rotation += 2*PI
 	if (health == 0) :
-		if (is_in_group("enemy")):
+		if is_in_group("enemy") || is_in_group("tower"):
 			destroy()
-		else:
+		elif is_in_group("player"):
 			health -= 1
 			$"/root/Level".players_alive -= 1
 		return
 	var projectResolution=get_viewport().size
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+		velocity = velocity.normalized()
 		target_rotation = -velocity.angle_to(default_direction)
 	else:
-		target_rotation = rotation
-	var drot = target_rotation - rotation
+		target_rotation = to_rotate.rotation
+	var drot = target_rotation - to_rotate.rotation
 
 	if abs(drot) < rot_epsilon:
-		rotation = target_rotation
+		to_rotate.rotation = target_rotation
 	elif drot < -PI:
-		rotation += rotation_speed*delta
+		to_rotate.rotation += rotation_speed*delta
 	elif drot < 0:
-		rotation -= rotation_speed*delta
+		to_rotate.rotation -= rotation_speed*delta
 	elif drot < PI:
-		rotation += rotation_speed*delta
+		to_rotate.rotation += rotation_speed*delta
 	else:
-		rotation -= rotation_speed*delta
+		to_rotate.rotation -= rotation_speed*delta
+
+func move(velocity,delta):
+	var projectResolution=get_viewport().size
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
 	move_and_slide(velocity)
 	if $"/root/Level".players_alive > 0:
 		position.x = clamp(position.x, radius, projectResolution.x - radius)
@@ -47,19 +56,26 @@ func move_rotate(velocity,delta):
 func setHealth(value):
 	if value >= 0 && value != health:
 		health = value
-		emit_signal("health_changed", self)
+		if is_in_group("player"):
+			emit_signal("health_changed", self)
 
-func _get_nearest_player(players):
-	var nearest_player_position = Vector2(10000, 10000)
+func _get_nearest_player():
+	
+	var to_hit = get_tree().get_nodes_in_group("tower")
+	var players = get_tree().get_nodes_in_group("player")
+	to_hit.append(players[0])
+	to_hit.append(players[1])
+	
+	var nearest_player_position = Vector2(INF, INF)
 	var min_distance = INF
 	var distance = 0
-	for player in players:
-		if player.health <= 0:
+	for entity in to_hit:
+		if entity.health <= 0:
 			continue
-		distance = (player.position  - position).length()
+		distance = (entity.position  - position).length()
 		if distance < min_distance:
 			min_distance = distance
-			nearest_player_position = player.position
+			nearest_player_position = entity.position
 	if $"/root/Level".players_alive == 0:
 		var projectResolution=get_viewport().size
 		nearest_player_position = Vector2(25,0).rotated(rotation + PI) + position

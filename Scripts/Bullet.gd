@@ -32,7 +32,7 @@ func destroy():
 	
 func collision_detection(obj):
 	destroy()
-	if obj.is_in_group("enemy") && owner_group == "player":
+	if obj.is_in_group("enemy") && owner_group != "enemy":
 		obj.setHealth(obj.health -1)
-	if obj.is_in_group("player") && owner_group == "enemy":
+	if !obj.is_in_group("enemy") && owner_group == "enemy":
 		obj.setHealth(obj.health -1)

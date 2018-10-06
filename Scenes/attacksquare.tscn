@@ -4,7 +4,6 @@
 [ext_resource path="res://Shaders/attack_shader.shader" type="Shader" id=2]
 [ext_resource path="res://Sprites/shader_attack.png" type="Texture" id=3]
 
-
 [sub_resource type="ShaderMaterial" id=1]
 
 render_priority = 0
