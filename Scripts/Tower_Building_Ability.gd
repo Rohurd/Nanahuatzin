@@ -25,6 +25,6 @@ func build_tower():
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
-	if Input.is_action_just_pressed("square_build_tower"):
+	if Input.is_action_just_pressed("square_build_tower") && ($"/root/Level/HUD/Time").pause:
 		build_tower()
 	pass

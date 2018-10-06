@@ -105,9 +105,83 @@ margin_left = -150.0
 margin_right = 150.0
 round_count = 0
 
+[node name="SquarePoints" type="Label" parent="HUD" index="3"]
+
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_top = -30.0
+margin_right = 215.0
+margin_bottom = -16.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="TrianglePoints" type="Label" parent="HUD" index="4"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -404.0
+margin_top = -30.0
+margin_right = -205.0
+margin_bottom = -15.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+align = 2
+valign = 3
+autowrap = true
+percent_visible = -0.333333
+lines_skipped = 0
+max_lines_visible = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="HUD" index="5"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -22.0
+margin_top = -30.0
+margin_right = 18.0
+margin_bottom = -16.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Score"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Spawn_Enemies" parent="." index="4" instance=ExtResource( 7 )]
 
-max_enemies = 5
+max_enemies = 7
 enemies_on_screen = 0
 
 [connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
