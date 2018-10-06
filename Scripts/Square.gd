@@ -6,6 +6,7 @@ func _ready():
 	health = 5
 	max_health = 5
 	add_to_group("player")
+	connect("health_changed", $"/root/Level/HUD/SquareHealth", "health_changed")
 	emit_signal("health_changed", self)
 
 func _physics_process(delta):
@@ -18,4 +19,5 @@ func _physics_process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("square_up"):
 		velocity.y -= 1
-	move_rotate(velocity, delta)
+	if health > -1:
+		move_rotate(velocity, delta)

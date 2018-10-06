@@ -11,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	timer += delta
-	if timer >= 1.0:
+	if timer >= 1.0 && $"/root/Level".players_alive > 0:
 		# One second has elapsed
 		timer = 0.0
 		value -= 1
