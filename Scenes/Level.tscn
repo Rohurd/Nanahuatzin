@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Enemy1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=4]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 [node name="Square" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -25,15 +25,29 @@ position = Vector2( 314.362, 326.669 )
 speed = 250
 radius = 15
 
-[node name="TriangleHealth" parent="." index="3" instance=ExtResource( 4 )]
+[node name="HUD" type="CanvasLayer" parent="." index="3"]
 
-[node name="SquareHealth" parent="." index="4" instance=ExtResource( 4 )]
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-margin_left = 988.0
-margin_right = 1028.0
+[node name="SquareHealth" parent="HUD" index="0" instance=ExtResource( 4 )]
 
-[connection signal="health_changed" from="Square" to="SquareHealth" method="health_changed"]
+alignment = 2
 
-[connection signal="health_changed" from="Triangle" to="TriangleHealth" method="health_changed"]
+[node name="TriangleHealth" parent="HUD" index="1" instance=ExtResource( 4 )]
+
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_right = 0.0
+grow_horizontal = 0
+_sections_unfolded = [ "Anchor", "Grow Direction" ]
+
+[connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
+
+[connection signal="health_changed" from="Triangle" to="HUD/TriangleHealth" method="health_changed"]
 
 
