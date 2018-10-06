@@ -4,14 +4,16 @@ extends Area2D
 # var a = 2
 # var b = "textvar"
 var velocity
+var owner_group
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
 	
-func init(var velo):
+func init(velo, group):
 	velocity = velo
+	owner_group = group
 	pass
 
 func _physics_process(delta):
@@ -29,5 +31,7 @@ func destroy():
 	
 func collision_detection(obj):
 	destroy()
-	if obj.is_in_group("enemy"):
+	if obj.is_in_group("enemy") && owner_group == "player":
 		obj.destroy()
+	elif obj.is_in_group("player") && owner_group == "enemy":
+		obj.setHealth(obj.health -1)

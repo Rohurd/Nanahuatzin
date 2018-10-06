@@ -18,8 +18,8 @@ script = ExtResource( 1 )
 speed = 500
 radius = 15
 rotation_speed = 6.28319
-health = 5
-max_health = 5
+max_health = 1
+health = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

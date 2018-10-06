@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Square.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Enemy1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Time.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Node2D"]
 
@@ -16,33 +17,41 @@ speed = 250
 
 position = Vector2( 197.281, 453.433 )
 speed = 250
+max_health = 1
+health = 1
 
-[node name="KinematicBody2D" parent="." index="2" instance=ExtResource( 3 )]
+[node name="HUD" type="CanvasLayer" parent="." index="2"]
 
-position = Vector2( 314.362, 326.669 )
-speed = 250
-radius = 15
-
-[node name="HUD" type="CanvasLayer" parent="." index="3"]
-
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="SquareHealth" parent="HUD" index="0" instance=ExtResource( 4 )]
+[node name="SquareHealth" parent="HUD" index="0" instance=ExtResource( 3 )]
 
 alignment = 2
 
-[node name="TriangleHealth" parent="HUD" index="1" instance=ExtResource( 4 )]
+[node name="TriangleHealth" parent="HUD" index="1" instance=ExtResource( 3 )]
 
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -40.0
 margin_right = 0.0
 grow_horizontal = 0
-_sections_unfolded = [ "Anchor", "Grow Direction" ]
+_sections_unfolded = [ "Grow Direction" ]
+
+[node name="Time" parent="HUD" index="2" instance=ExtResource( 4 )]
+
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_right = 150.0
+
+[node name="Spawn_Enemies" parent="." index="3" instance=ExtResource( 5 )]
+
+max_enemies = 20
 
 [connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
 
