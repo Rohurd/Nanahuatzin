@@ -15,7 +15,7 @@ shader_param/t = null
 custom_solver_bias = 0.0
 radius = 70.0
 
-[node name="SquareAttack" type="Area2D"]
+[node name="SquareAttack" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
