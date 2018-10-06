@@ -50,7 +50,7 @@ shader_param/yspacing = null
 shader_param/tspacing = null
 shader_param/tyspacing = null
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material" ]
@@ -60,10 +60,9 @@ players_alive = 2
 
 show_behind_parent = true
 material = SubResource( 2 )
-position = Vector2( 620, 360 )
-scale = Vector2( 5.66667, 16.9797 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Material", "Transform" ]
+centered = false
+_sections_unfolded = [ "Material" ]
 
 [node name="Square" parent="." index="1" instance=ExtResource( 3 )]
 

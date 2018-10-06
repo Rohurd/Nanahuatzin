@@ -4,7 +4,7 @@
 [ext_resource path="res://Shaders/attack_shader.shader" type="Shader" id=2]
 [ext_resource path="res://Sprites/shader_attack.png" type="Texture" id=3]
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=1]
 
 render_priority = 0
 shader = ExtResource( 2 )
@@ -15,7 +15,7 @@ shader_param/t = null
 custom_solver_bias = 0.0
 radius = 70.0
 
-[node name="SquareAttack" type="Area2D" index="0"]
+[node name="SquareAttack" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -31,7 +31,7 @@ tween_length = 0.1
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 modulate = Color( 0, 1, 0.203125, 1 )
-material = SubResource( 3 )
+material = SubResource( 1 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]

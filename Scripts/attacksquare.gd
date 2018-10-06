@@ -9,7 +9,6 @@ export var total_length = 1.0
 export var tween_length = 0.1
 
 func set_t(value):
-	print(value)
 	$Sprite.get_material().set_shader_param("t", value)
 	
 
