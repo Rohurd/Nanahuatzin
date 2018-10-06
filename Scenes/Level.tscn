@@ -54,7 +54,7 @@ margin_right = 150.0
 
 [node name="Spawn_Enemies" parent="." index="3" instance=ExtResource( 6 )]
 
-max_enemies = 10
+max_enemies = 2
 enemies_on_screen = 0
 
 [connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]

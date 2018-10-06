@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shader_attack.svg-e193188c947642dc486172ba86969c62.stex"
+path="res://.import/shader_attack.png-3655eeb5cdf4933e7e52650ca4ac4c7c.stex"
 
 [deps]
 
-source_file="res://Textures/shader_attack.svg"
-dest_files=[ "res://.import/shader_attack.svg-e193188c947642dc486172ba86969c62.stex" ]
+source_file="res://Sprites/shader_attack.png"
+dest_files=[ "res://.import/shader_attack.png-3655eeb5cdf4933e7e52650ca4ac4c7c.stex" ]
 
 [params]
 

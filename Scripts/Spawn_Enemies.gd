@@ -3,7 +3,7 @@ extends Node
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-export var max_enemies = 10
+export var max_enemies = 2
 export var enemies_on_screen = 0
 var time = 5.0
 
