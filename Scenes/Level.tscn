@@ -50,7 +50,7 @@ shader_param/yspacing = null
 shader_param/tspacing = null
 shader_param/tyspacing = null
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material" ]
@@ -103,7 +103,6 @@ anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -150.0
 margin_right = 150.0
-round_count = 0
 
 [node name="SquarePoints" type="Label" parent="HUD" index="3"]
 
@@ -149,7 +148,7 @@ text = "0"
 align = 2
 valign = 3
 autowrap = true
-percent_visible = -0.333333
+percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = 1
 _sections_unfolded = [ "Rect" ]
