@@ -3,7 +3,7 @@ extends Node
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-export var max_enemies = 100
+export var max_enemies = 20
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -15,7 +15,8 @@ func _process(delta):
 	# Update game logic here.
 	var timeNode = $"/root/Level/HUD/Time"
 	if !timeNode.pause && get_child_count() < max_enemies:
-		var scene = load("res://Scenes/Enemy1.tscn")
+		
+		var scene = load("res://Scenes/Enemy" + str(randi() % 2 + 1) + ".tscn")
 		var scene_instance = scene.instance()
 		scene_instance.set_name("enemy")
 		var x = 0

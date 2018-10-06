@@ -12,8 +12,6 @@
 
 position = Vector2( 95.5807, 306.051 )
 speed = 250
-max_health = 1
-health = 1
 
 [node name="Triangle" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -24,6 +22,7 @@ health = 1
 
 [node name="HUD" type="CanvasLayer" parent="." index="2"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -51,6 +50,8 @@ margin_left = -150.0
 margin_right = 150.0
 
 [node name="Spawn_Enemies" parent="." index="3" instance=ExtResource( 5 )]
+
+max_enemies = 20
 
 [connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
 
