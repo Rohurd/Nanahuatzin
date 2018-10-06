@@ -3,7 +3,7 @@ extends Node
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-export var max_enemies = 2
+export var max_enemies = 5
 export var enemies_on_screen = 0
 var time = 5.0
 
@@ -18,7 +18,8 @@ func _process(delta):
 	time += delta
 	if time >= 5.0 :
 		while !($"/root/Level/HUD/Time").pause && enemies_on_screen < max_enemies && $"/root/Level".players_alive > 0:
-			var scene = load("res://Scenes/Enemy" + str(randi() % 3 + 1) + ".tscn")
+			var allowed_enemies = clamp(randi() % (int($"/root/Level/HUD/Time".round_count / 3)+1) + 1, 1, 3)
+			var scene = load("res://Scenes/Enemy" + str(allowed_enemies) + ".tscn")
 			var scene_instance = scene.instance()
 			scene_instance.set_name("enemy")
 			var x = 0

@@ -2,6 +2,8 @@ extends "res://Scripts/Entity.gd"
 
 signal health_changed(player)
 
+var shoot_count = 0
+
 func _ready():
 	health = 5
 	max_health = 5
@@ -20,13 +22,26 @@ func _physics_process(delta):
 	if Input.is_action_pressed("triangle_up"):
 		velocity.y -= 1
 	if health > -1: 
-		move_rotate(velocity, delta)
+		rotate(velocity, delta, self)
+		move(velocity,delta)
 	
 	if Input.is_action_just_pressed("triangle_shoot"):
-		var scene = load("res://Scenes/Bullet.tscn")
-		var scene_instance = scene.instance()
-		scene_instance.set_name("bullet")
-		scene_instance.set_position(Vector2(25,0).rotated(rotation) + position)
-		scene_instance.set_rotation(rotation)
-		scene_instance.init(Vector2(10,0).rotated(rotation), "player")
-		get_parent().add_child(scene_instance)
+		if shoot_count >= 9:
+			for i in range(0,3):
+				var scene = load("res://Scenes/Bullet.tscn")
+				var scene_instance = scene.instance()
+				scene_instance.set_name("bullet")
+				scene_instance.set_position(Vector2(25,0).rotated(rotation) + position)
+				scene_instance.set_rotation(rotation)
+				scene_instance.init(Vector2(10,0).rotated(rotation-5+(i*5)), "player")
+				get_parent().add_child(scene_instance)
+			shoot_count = 0
+		else:
+			var scene = load("res://Scenes/Bullet.tscn")
+			var scene_instance = scene.instance()
+			scene_instance.set_name("bullet")
+			scene_instance.set_position(Vector2(25,0).rotated(rotation) + position)
+			scene_instance.set_rotation(rotation)
+			scene_instance.init(Vector2(10,0).rotated(rotation), "player")
+			get_parent().add_child(scene_instance)
+			shoot_count += 1

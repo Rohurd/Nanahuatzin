@@ -29,4 +29,5 @@ func _physics_process(delta):
 	if Input.is_action_pressed("square_up"):
 		velocity.y -= 1
 	if health > -1:
-		move_rotate(velocity, delta)
+		rotate(velocity, delta, self)
+		move(velocity,delta)

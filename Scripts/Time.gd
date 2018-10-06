@@ -2,6 +2,7 @@ extends TextureProgress
 
 var timer = 0.0
 var level_time = 20
+export var round_count = 0
 export var pause = false
 
 func _ready():
@@ -21,5 +22,6 @@ func _process(delta):
 			level_time = int(level_time * 1.5)
 			var enemy_node = $"/root/Level/Spawn_Enemies"
 			enemy_node.max_enemies = int(enemy_node.max_enemies * 1.5)
+			round_count += 1
 		max_value = 20 if pause else level_time
 		value = max_value

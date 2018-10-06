@@ -12,7 +12,6 @@ export var mark_color = Color(255/255, 255/255, 0/255)
 func _ready():
 	unmark()
 	add_to_group("SoonToBeTower")
-	add_to_group("tower")
 	rects = [$ColorRect, $ColorRect2,$ColorRect3,$ColorRect4,$ColorRect5,$ColorRect6,$ColorRect7,$ColorRect8]
 	
 func _change_to_tower():
