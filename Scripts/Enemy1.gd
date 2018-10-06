@@ -17,6 +17,10 @@ func _physics_process(delta):
 		var player = collision.collider
 		if (player.is_in_group("player") || player.is_in_group("tower")) && player.health > 0:
 			player.setHealth(player.health-1)
+			if player.name == "Triangle" :
+				$"/root/Level/HUD/TrianglePoints".text = str(int($"/root/Level/HUD/TrianglePoints".text) + 1)
+			elif player.name == "Square":
+				$"/root/Level/HUD/SquarePoints".text = str(int($"/root/Level/HUD/SquarePoints".text) + 1)
 			destroy()
 
 #func _process(delta):
