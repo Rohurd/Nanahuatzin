@@ -361,6 +361,4 @@ bus = "Master"
 
 [node name="ExpGen" parent="." index="6" instance=ExtResource( 21 )]
 
-[connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
-
 
