@@ -6,6 +6,8 @@ var target_pos = Vector2(0,0)
 func _ready():
 	add_to_group("enemy")
 	speed = 100
+	health = 3
+	max_health = 3
 	
 func _physics_process(delta):
 	target_pos = _get_nearest_player()
@@ -21,6 +23,7 @@ func _physics_process(delta):
 				$"/root/Level/HUD/TrianglePoints".text = str(int($"/root/Level/HUD/TrianglePoints".text) + 1)
 			elif player.name == "Square":
 				$"/root/Level/HUD/SquarePoints".text = str(int($"/root/Level/HUD/SquarePoints".text) + 1)
+				
 			destroy()
 
 #func _process(delta):

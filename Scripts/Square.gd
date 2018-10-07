@@ -1,19 +1,30 @@
-extends "res://Scripts/Movement_Rotation.gd"
-
-export var health = 5 setget setHealth
-export var max_health = 5
+extends "res://Scripts/Entity.gd"
 
 signal health_changed(player)
+export var attack_cd = 0.5
+var attacking = false
 
 func _ready():
-	add_to_group("players")
+	health = 5
+	max_health = 5
+	add_to_group("player")
+	connect("health_changed", $"/root/Level/HUD/SquareHealth", "health_changed")
 	emit_signal("health_changed", self)
-
-func setHealth(value):
-	print(value)
-	if value != health:
-		health = value
-		emit_signal("health_changed", self)
+	
+func attack():
+	if not attacking:
+		attacking = true
+		var old_speed = speed
+		speed = 20
+		$ShieldAbility.activate()
+		yield($ShieldAbility, "finished")
+		speed = old_speed
+		yield(get_tree().create_timer(attack_cd), "timeout")
+		attacking = false
+	
+func _process(delta):
+	if health > 0 && Input.is_action_just_pressed("square_attack"):
+		attack()
 
 func _physics_process(delta):
 	var velocity = Vector2() # The player's movement vector.
@@ -25,12 +36,6 @@ func _physics_process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("square_up"):
 		velocity.y -= 1
-	move_rotate(velocity, delta)
-	
-	if Input.is_action_just_pressed("square_shoot"):
-		var scene = load("res://Scenes/Bullet.tscn")
-		var scene_instance = scene.instance()
-		scene_instance.set_name("bullet")
-		scene_instance.set_position(Vector2(20,0).rotated(rotation) + position)
-		scene_instance.init(Vector2(10,0).rotated(rotation))
-		get_parent().add_child(scene_instance)
+	if health > -1:
+		rotate(velocity, delta, self)
+		move(velocity,delta)

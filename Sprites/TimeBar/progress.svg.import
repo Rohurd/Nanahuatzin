@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tower.png-a203f97fa26592a69e0ad647e095e140.stex"
+path="res://.import/progress.svg-c1e676226a83c7f4b91113469b57bbbf.stex"
 
 [deps]
 
-source_file="res://Textures/tower.png"
-dest_files=[ "res://.import/tower.png-a203f97fa26592a69e0ad647e095e140.stex" ]
+source_file="res://Sprites/TimeBar/progress.svg"
+dest_files=[ "res://.import/progress.svg-c1e676226a83c7f4b91113469b57bbbf.stex" ]
 
 [params]
 

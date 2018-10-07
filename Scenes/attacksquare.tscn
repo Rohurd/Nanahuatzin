@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/attacksquare.gd" type="Script" id=1]
+[ext_resource path="res://Shaders/attack_shader.shader" type="Shader" id=2]
+[ext_resource path="res://Sprites/shader_attack.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 2 )
+shader_param/t = null
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 82.0
+
+[node name="SquareAttack" type="Area2D" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+total_length = 1.0
+tween_length = 0.1
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0, 1, 0.203125, 1 )
+material = SubResource( 1 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+
+[node name="Collision" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tween" type="Tween" parent="." index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "playback" ]
+
+[connection signal="area_entered" from="." to="." method="on_collide"]
+
+[connection signal="area_exited" from="." to="." method="on_exit"]
+
+[connection signal="body_entered" from="." to="." method="on_collide"]
+
+[connection signal="body_exited" from="." to="." method="on_exit"]
+
+

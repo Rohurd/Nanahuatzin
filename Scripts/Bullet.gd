@@ -1,17 +1,20 @@
-extends KinematicBody2D
+extends Area2D
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
 var velocity
+var owner_group
 
 func _ready():
+	add_to_group("bullet")
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
 	
-func init(var velo):
+func init(velo, group):
 	velocity = velo
+	owner_group = group
 	pass
 
 func _physics_process(delta):
@@ -23,3 +26,18 @@ func _physics_process(delta):
 	if position.x > projectResolution.x || position.y > projectResolution.y:
 		queue_free()
 	pass
+	
+func destroy():
+	queue_free()
+	
+func collision_detection(obj):
+	destroy()
+	if obj.is_in_group("enemy") && owner_group != "enemy":
+		obj.setHealth(obj.health -1)
+		if obj.health == 0:
+			if owner_group == "player":
+				$"/root/Level/HUD/TrianglePoints".text = str(int($"/root/Level/HUD/TrianglePoints".text) + 1)
+			elif owner_group == "tower":
+				$"/root/Level/HUD/SquarePoints".text = str(int($"/root/Level/HUD/SquarePoints".text) + 1)
+	if !obj.is_in_group("enemy") && owner_group == "enemy":
+		obj.setHealth(obj.health -1)

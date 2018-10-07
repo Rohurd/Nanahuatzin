@@ -1,25 +1,188 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/Square.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Enemy1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/TimeBar/progress.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Square.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Time.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+render_mode blend_add;
+
+uniform vec4 topcolor = vec4(0.14, 0.2, 0.5, 1.0);
+uniform vec4 botcolor = vec4(0.0, 0.0, 0.4, 1.0);
+uniform float cutoff = 0.8;
+uniform float xspacing = 50;
+uniform float yyspacing = 15;
+uniform float yspacing = 50;
+uniform float tspacing = 0.4;
+uniform float tyspacing = 0.4;
+
+void fragment() {
+	vec4 p = FRAGCOORD;
+	float x = p.x/xspacing + p.y/yspacing - tspacing * TIME + 0.3* sin(TIME + 0.01*p.x) * sin(0.1*p.y);
+	float y = p.y/yyspacing;
+	COLOR = vec4(0.0, 0.0, 1.0, 1.0);
+	float dark = sin(x);
+	if (dark > cutoff) {
+		COLOR = topcolor;
+	} else {
+		COLOR = botcolor;
+	}
+	}
+"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = SubResource( 1 )
+shader_param/topcolor = null
+shader_param/botcolor = null
+shader_param/cutoff = null
+shader_param/xspacing = null
+shader_param/yyspacing = null
+shader_param/yspacing = null
+shader_param/tspacing = null
+shader_param/tyspacing = null
 
 [node name="Level" type="Node2D" index="0"]
 
-[node name="Square" parent="." index="0" instance=ExtResource( 1 )]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material" ]
+players_alive = 2
 
-position = Vector2( 231.579, 250.415 )
+[node name="Water" type="Sprite" parent="." index="0"]
+
+show_behind_parent = true
+material = SubResource( 2 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Material" ]
+
+[node name="Square" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 170, 310 )
 speed = 250
 
-[node name="Triangle" parent="." index="1" instance=ExtResource( 2 )]
+[node name="Triangle" parent="." index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 375.463, 186.371 )
+position = Vector2( 850, 310 )
 speed = 250
+max_health = 1
+health = 1
 
-[node name="KinematicBody2D" parent="." index="2" instance=ExtResource( 3 )]
+[node name="HUD" type="CanvasLayer" parent="." index="3"]
 
-position = Vector2( 215.454, 131.944 )
-speed = 250
-radius = 15
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="SquareHealth" parent="HUD" index="0" instance=ExtResource( 5 )]
+
+alignment = 2
+
+[node name="TriangleHealth" parent="HUD" index="1" instance=ExtResource( 5 )]
+
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_right = 0.0
+grow_horizontal = 0
+_sections_unfolded = [ "Grow Direction" ]
+
+[node name="Time" parent="HUD" index="2" instance=ExtResource( 6 )]
+
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_right = 150.0
+
+[node name="SquarePoints" type="Label" parent="HUD" index="3"]
+
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_top = -30.0
+margin_right = 215.0
+margin_bottom = -16.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="TrianglePoints" type="Label" parent="HUD" index="4"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -404.0
+margin_top = -30.0
+margin_right = -205.0
+margin_bottom = -15.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+align = 2
+valign = 3
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="HUD" index="5"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -22.0
+margin_top = -30.0
+margin_right = 18.0
+margin_bottom = -16.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Score"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Spawn_Enemies" parent="." index="4" instance=ExtResource( 7 )]
+
+max_enemies = 7
+enemies_on_screen = 0
+
+[connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
 
 

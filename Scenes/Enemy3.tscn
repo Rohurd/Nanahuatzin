@@ -1,28 +1,30 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/Enemy1.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Enemy3.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15, 15 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-speed = 100
+speed = 250
 radius = 15
 rotation_speed = 6.28319
+max_health = 1
+health = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="0"]
 
 polygon = PoolVector2Array( 0, 4, 15, 15, 4, 0, 15, -15, 0, -4, -15, -15, -4, 0, -15, 15 )
 uv = PoolVector2Array(  )
-color = Color( 1, 0, 0, 1 )
+color = Color( 0.521242, 0.0898895, 0.535156, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
