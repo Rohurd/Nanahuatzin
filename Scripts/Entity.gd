@@ -65,8 +65,8 @@ func _get_nearest_player():
 	
 	var to_hit = get_tree().get_nodes_in_group("tower")
 	var players = get_tree().get_nodes_in_group("player")
-	to_hit.append(players[0])
-	to_hit.append(players[1])
+	for player in players :
+		to_hit.append(player)
 	
 	var nearest_player_position = Vector2(INF, INF)
 	var min_distance = INF

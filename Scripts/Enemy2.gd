@@ -11,7 +11,7 @@ func _ready():
 	
 func _physics_process(delta):
 	target_pos = _get_nearest_player()
-	var velocity = (target_pos - position - Vector2(100,0).rotated(rotation)).normalized()
+	var velocity = (target_pos - position - Vector2(150,0).rotated(rotation)).normalized()
 	rotate(velocity, delta, self)
 	move(velocity,delta)
 	for i in get_slide_count():
