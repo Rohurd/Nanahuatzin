@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/waves.shader" type="Shader" id=2]
@@ -7,18 +7,20 @@
 [ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Time.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=9]
-[ext_resource path="res://Sounds/tower_explosion.wav" type="AudioStream" id=10]
-[ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=11]
-[ext_resource path="res://Sounds/Bhangra Bass_49_1.wav" type="AudioStream" id=12]
-[ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Sounds/battle_mode.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Sounds/3.ogg" type="AudioStream" id=16]
-[ext_resource path="res://Sounds/2.ogg" type="AudioStream" id=17]
-[ext_resource path="res://Sounds/1.ogg" type="AudioStream" id=18]
-[ext_resource path="res://Scenes/ExpGen.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sprites/big_text.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/battlemode.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/tower_explosion.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/Bhangra Bass_49_1.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/battle_mode.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/3.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/2.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/1.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Scenes/ExpGen.tscn" type="PackedScene" id=21]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -33,6 +35,44 @@ shader_param/yspacing = null
 shader_param/tspacing = null
 shader_param/tyspacing = null
 _sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "battle"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("battle:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "build"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("build:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Level" type="Node2D" index="0"]
 
@@ -142,7 +182,47 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="Spawn_Enemies" parent="." index="4" instance=ExtResource( 8 )]
+[node name="ModeLabel" type="Control" parent="HUD" index="5"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="build" type="Sprite" parent="HUD/ModeLabel" index="0"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="battle" type="Sprite" parent="HUD/ModeLabel" index="1"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/ModeLabel" index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/battle = SubResource( 2 )
+anims/build = SubResource( 3 )
+blend_times = [  ]
+
+[node name="Spawn_Enemies" parent="." index="4" instance=ExtResource( 10 )]
 
 max_enemies = 7
 
@@ -150,7 +230,7 @@ max_enemies = 7
 
 [node name="BigShoot" type="AudioStreamPlayer" parent="Sounds" index="0"]
 
-stream = ExtResource( 9 )
+stream = ExtResource( 11 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -159,7 +239,7 @@ bus = "Effects"
 
 [node name="TowerDestruction" type="AudioStreamPlayer" parent="Sounds" index="1"]
 
-stream = ExtResource( 10 )
+stream = ExtResource( 12 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -172,7 +252,7 @@ editor/display_folded = true
 
 [node name="SmallShoot0" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="0"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -181,7 +261,7 @@ bus = "Effects"
 
 [node name="SmallShoot1" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -190,7 +270,7 @@ bus = "Effects"
 
 [node name="SmallShoot2" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="2"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -199,7 +279,7 @@ bus = "Effects"
 
 [node name="SmallShoot3" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="3"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -208,7 +288,7 @@ bus = "Effects"
 
 [node name="SmallShoot4" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="4"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -217,7 +297,7 @@ bus = "Effects"
 
 [node name="SoundTrackMusic" type="AudioStreamPlayer" parent="Sounds" index="3"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 14 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
@@ -226,7 +306,7 @@ bus = "Music"
 
 [node name="SoundTrackWaves" type="AudioStreamPlayer" parent="Sounds" index="4"]
 
-stream = ExtResource( 13 )
+stream = ExtResource( 15 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
@@ -236,7 +316,7 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="BattleStart" type="AudioStreamPlayer" parent="Sounds" index="5"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 16 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -245,7 +325,7 @@ bus = "Master"
 
 [node name="GameOver" type="AudioStreamPlayer" parent="Sounds" index="6"]
 
-stream = ExtResource( 15 )
+stream = ExtResource( 17 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -254,7 +334,7 @@ bus = "Master"
 
 [node name="Three" type="AudioStreamPlayer" parent="Sounds" index="7"]
 
-stream = ExtResource( 16 )
+stream = ExtResource( 18 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -263,7 +343,7 @@ bus = "Master"
 
 [node name="Two" type="AudioStreamPlayer" parent="Sounds" index="8"]
 
-stream = ExtResource( 17 )
+stream = ExtResource( 19 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -272,14 +352,14 @@ bus = "Master"
 
 [node name="One" type="AudioStreamPlayer" parent="Sounds" index="9"]
 
-stream = ExtResource( 18 )
+stream = ExtResource( 20 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="ExpGen" parent="." index="6" instance=ExtResource( 19 )]
+[node name="ExpGen" parent="." index="6" instance=ExtResource( 21 )]
 
 [connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
 
