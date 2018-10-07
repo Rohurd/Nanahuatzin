@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/TimeBar/progress.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=8]
 [ext_resource path="res://Sounds/tower_explosion.wav" type="AudioStream" id=9]
 [ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/Bhangra Bass_49_1.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=12]
 
 [sub_resource type="Shader" id=1]
 
@@ -226,6 +228,24 @@ bus = "Master"
 [node name="SmallShoot4" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="4"]
 
 stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundTrackMusic" type="AudioStreamPlayer" parent="Sounds" index="3"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundTrackWaves" type="AudioStreamPlayer" parent="Sounds" index="4"]
+
+stream = ExtResource( 12 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
