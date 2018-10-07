@@ -27,6 +27,7 @@ func _process(delta):
 				$"/root/Level/Sounds/Three".play()
 		
 	if !pause && value <= 0:
+		$"/root/Level/HUD/ModeLabel/AnimationPlayer".play("build")
 		pause = !pause
 		level_time = int(level_time + 5)
 		var enemy_node = $"/root/Level/Spawn_Enemies"
@@ -35,6 +36,7 @@ func _process(delta):
 		max_value = 7 if pause else level_time
 		value = 0
 	elif pause && value >= max_value:
+		$"/root/Level/HUD/ModeLabel/AnimationPlayer".play("battle")
 		pause = !pause
 		max_value = 7 if pause else level_time
 		value = max_value
