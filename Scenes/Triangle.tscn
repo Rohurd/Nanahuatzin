@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Triangle.gd" type="Script" id=1]
 
-[node name="Triangle" type="KinematicBody2D" index="0"]
+[node name="Triangle" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -11,9 +11,9 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 speed = 1
 radius = 15
+rotation_speed = 6.28319
 health = 5
 max_health = 5
-rotation_speed = 6.28319
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
