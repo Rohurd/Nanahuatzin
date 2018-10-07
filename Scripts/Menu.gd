@@ -2,19 +2,13 @@ extends Control
 
 var max_ships = 100
 var volume_ratio = 1.0
+var difficulties = ["Easy","Medium","Hard"]
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	get_tree().get_root().connect("size_changed", self, "_on_screen_resized")
 	_on_screen_resized()
-	
-	var projectResolution = get_viewport().size
-	var scene = load("res://Scenes/Triangle.tscn")
-	var scene_instance = scene.instance()
-	scene_instance.set_name("player")
-	scene_instance.set_position(Vector2(10000, projectResolution.y / 2))
-	pass
 
 func _on_screen_resized():
 	var projectResolution = get_viewport().size
@@ -37,7 +31,6 @@ func _process(delta):
 		scene_instance.z_index = -1
 		
 		$"/root/Menu/Ships".add_child(scene_instance)
-	pass
 
 
 func _on_Start_pressed():
@@ -45,33 +38,29 @@ func _on_Start_pressed():
 	var scene_instance = scene.instance()
 	scene_instance.set_name("Level")
 	$"/root".add_child(scene_instance)
+	scene_instance.init($"/root/Menu/Options/DifficultyValueLabel".text)
 	queue_free()
-	pass # replace with function body
 
 
 func _on_Options_pressed():
 	$"/root/Menu/Main".hide()
 	$"/root/Menu/Options".show()
-	pass # replace with function body
 
 
 func _on_MusicVolumeSlider_value_changed(value):
 	$"/root/Menu/Options/MusicVolumeValueLabel".text = str(value)
 	var voldb = 20 * log(value / 100)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), voldb)
-	pass # replace with function body
 	
 func _on_EffectsVolumeSlider_value_changed(value):
 	$"/root/Menu/Options/EffectsVolumeValueLabel".text = str(value)
 	var voldb = 20 * log(value / 100)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), voldb)
-	pass # replace with function body
 
 
 func _on_Back_pressed():
 	$"/root/Menu/Main".show()
 	$"/root/Menu/Options".hide()
-	pass # replace with function body
 
 func _on_MusicVolumeSlider_gui_input(ev):
 	if (ev is InputEventMouseButton) && !ev.pressed && (ev.button_index == BUTTON_LEFT):
@@ -80,3 +69,7 @@ func _on_MusicVolumeSlider_gui_input(ev):
 func _on_EffectsVolumeSlider_gui_input(ev):
 	if (ev is InputEventMouseButton) && !ev.pressed && (ev.button_index == BUTTON_LEFT):
 		$"/root/Menu/Options/EffectsTestSound".play()
+
+
+func _on_Difficulty_value_changed(value):
+	$"/root/Menu/Options/DifficultyValueLabel".text = difficulties[value]
