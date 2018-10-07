@@ -24,6 +24,8 @@ func rotate(velocity, delta, to_rotate):
 		elif is_in_group("player"):
 			health -= 1
 			$"/root/Level".players_alive -= 1
+			if $"/root/Level".players_alive == 0:
+				$"/root/Level/Sounds/GameOver".play()
 		return
 	var projectResolution=get_viewport().size
 	if velocity.length() > 0:

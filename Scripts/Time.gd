@@ -19,7 +19,13 @@ func _process(delta):
 			value += 1
 		else:
 			value -= 1
-			
+			if value == 1:
+				$"/root/Level/Sounds/One".play()
+			elif value == 2:
+				$"/root/Level/Sounds/Two".play()
+			elif value == 3:
+				$"/root/Level/Sounds/Three".play()
+		
 	if !pause && value <= 0:
 		pause = !pause
 		level_time = int(level_time + 5)
@@ -32,3 +38,4 @@ func _process(delta):
 		pause = !pause
 		max_value = 7 if pause else level_time
 		value = max_value
+		$"/root/Level/Sounds/BattleStart".play()

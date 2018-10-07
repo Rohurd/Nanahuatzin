@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/waves.shader" type="Shader" id=2]
@@ -13,7 +13,12 @@
 [ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/Bhangra Bass_49_1.wav" type="AudioStream" id=12]
 [ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Scenes/ExpGen.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sounds/battle_mode.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/3.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/2.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/1.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Scenes/ExpGen.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -163,6 +168,8 @@ bus = "Effects"
 
 [node name="SmallShootCache" type="Node" parent="Sounds" index="2"]
 
+editor/display_folded = true
+
 [node name="SmallShoot0" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="0"]
 
 stream = ExtResource( 11 )
@@ -227,7 +234,52 @@ mix_target = 0
 bus = "Music"
 _sections_unfolded = [ "Pause" ]
 
-[node name="ExpGen" parent="." index="6" instance=ExtResource( 14 )]
+[node name="BattleStart" type="AudioStreamPlayer" parent="Sounds" index="5"]
+
+stream = ExtResource( 14 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="GameOver" type="AudioStreamPlayer" parent="Sounds" index="6"]
+
+stream = ExtResource( 15 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Three" type="AudioStreamPlayer" parent="Sounds" index="7"]
+
+stream = ExtResource( 16 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Two" type="AudioStreamPlayer" parent="Sounds" index="8"]
+
+stream = ExtResource( 17 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="One" type="AudioStreamPlayer" parent="Sounds" index="9"]
+
+stream = ExtResource( 18 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ExpGen" parent="." index="6" instance=ExtResource( 19 )]
 
 [connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
 

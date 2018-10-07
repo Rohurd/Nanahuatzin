@@ -19,10 +19,10 @@ func _process(delta):
 	if time >= 5.0 :
 		while !($"/root/Level/HUD/Time").pause && enemies_on_screen < max_enemies && $"/root/Level".players_alive > 0:
 			var rng = randf()
-			var allowed_enemies = 2
-			if rng < 0.3 : 
+			var allowed_enemies = 1
+			if rng < 0.3 && $"/root/Level/HUD/Time".round_count > 2  : 
 				allowed_enemies = 3
-			elif rng < 0.45 && $"/root/Level/HUD/Time".round_count > 3 :
+			elif rng < 0.45 && $"/root/Level/HUD/Time".round_count > 4 :
 				allowed_enemies = 2
 			var scene = load("res://Scenes/Enemy" + str(allowed_enemies) + ".tscn")
 			var scene_instance = scene.instance()

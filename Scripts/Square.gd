@@ -41,7 +41,7 @@ func attack():
 		attacking = false
 	
 func _process(delta):
-	if health > 0 && Input.is_action_just_pressed("square_attack"):
+	if health > 0 && Input.is_action_just_pressed("square_attack") && !$"/root/Level/HUD/Time".pause:
 		attack()
 
 func _physics_process(delta):
