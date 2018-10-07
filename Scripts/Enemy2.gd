@@ -28,7 +28,7 @@ func _physics_process(delta):
 		var scene = load("res://Scenes/Bullet.tscn")
 		var scene_instance = scene.instance()
 		scene_instance.set_name("bullet")
-		scene_instance.set_position(position + Vector2(25,0).rotated(rotation))
+		scene_instance.set_position(position + Vector2(40,0).rotated(rotation))
 		scene_instance.set_rotation(rotation)
 		scene_instance.init(Vector2(10,0).rotated(rotation), "enemy")
 		scene_instance.scale = Vector2(1,1)

@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Enemy1.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/SmallShip.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 15, 15 )
+radius = 7.61485
+height = 15.204
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -17,24 +19,21 @@ script = ExtResource( 1 )
 speed = 100
 radius = 15
 rotation_speed = 6.28319
+max_health = 1
+health = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
-polygon = PoolVector2Array( 0, 4, 15, 15, 4, 0, 15, -15, 0, -4, -15, -15, -4, 0, -15, 15 )
-uv = PoolVector2Array(  )
-color = Color( 1, 0, 0, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
+position = Vector2( 0.699297, 0 )
+rotation = -1.5708
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+rotation = -1.5708
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 
