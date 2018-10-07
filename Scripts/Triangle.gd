@@ -53,6 +53,8 @@ func _physics_process(delta):
 				scene_instance.init(Vector2(10,0).rotated(rotation-5+(i*5)), "player")
 				get_parent().add_child(scene_instance)
 			shoot_count = 0
+			
+			$"/root/Level/Sounds/BigShoot".play()
 		else:
 			var scene = load("res://Scenes/Bullet.tscn")
 			var scene_instance = scene.instance()
@@ -62,3 +64,5 @@ func _physics_process(delta):
 			scene_instance.init(Vector2(10,0).rotated(rotation), "player")
 			get_parent().add_child(scene_instance)
 			shoot_count += 1
+			
+			$"/root/Level/Sounds/BigShoot".play()

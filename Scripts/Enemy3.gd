@@ -1,6 +1,5 @@
 extends "res://Scripts/Entity.gd"
 
-var target
 var target_pos = Vector2(0,0)
 
 func _ready():
@@ -8,6 +7,7 @@ func _ready():
 	speed = 100
 	health = 3
 	max_health = 3
+	radius = 50
 	
 func _physics_process(delta):
 	target_pos = _get_nearest_player()
@@ -20,11 +20,7 @@ func _physics_process(delta):
 		if (player.is_in_group("player") || player.is_in_group("tower")) && player.health > 0:
 			player.setHealth(player.health-1)
 			$"/root/Level/ExpGen".gen_exp_big(global_position)
-			if player.name == "Triangle" :
-				$"/root/Level/HUD/TrianglePoints".text = str(int($"/root/Level/HUD/TrianglePoints".text) + 1)
-			elif player.name == "Square":
-				$"/root/Level/HUD/SquarePoints".text = str(int($"/root/Level/HUD/SquarePoints".text) + 1)
-				
+			$"/root/Level/HUD/Points".text = str(int($"/root/Level/HUD/Points".text) + 1)
 			destroy()
 
 #func _process(delta):

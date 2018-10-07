@@ -30,7 +30,7 @@ func _process(delta):
 			$"/root/Level/ExpGen".gen_exp_small(obj.global_position)
 			obj.destroy()
 			if obj.is_in_group("enemy"):
-				$"/root/Level/HUD/SquarePoints".text = str(int($"/root/Level/HUD/SquarePoints".text) + 1)
+				$"/root/Level/HUD/Points".text = str(int($"/root/Level/HUD/Points".text) + 1)
 		objects = []
 
 func on_collide(obj):

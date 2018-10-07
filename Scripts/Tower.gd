@@ -42,5 +42,8 @@ func _process(delta):
 		scene_instance.set_position(position + Vector2(40,0).rotated(get_child(2).rotation))
 		scene_instance.set_rotation(get_child(2).rotation)
 		scene_instance.init(Vector2(10,0).rotated(get_child(2).rotation), "tower")
+		scene_instance.scale = Vector2(1,1)
 		$"/root/Level".add_child(scene_instance)
+		
+		$"/root/Level".play_small_sound(0)
 	pass
