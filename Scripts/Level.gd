@@ -11,23 +11,17 @@ func _ready():
 
 func init(difficulty):
 	match difficulty:
-		"Easy" : $"/root/Level/Spawn_Enemies".max_enemies = 5
-		"Medium" : $"/root/Level/Spawn_Enemies".max_enemies = 10
-		"Hard" : $"/root/Level/Spawn_Enemies".max_enemies = 15
+		"Easy" : $Spawn_Enemies.max_enemies = 5
+		"Medium" : $Spawn_Enemies.max_enemies = 10
+		"Hard" : $Spawn_Enemies.max_enemies = 20
 
 func _on_screen_resized():
 	var projectResolution = get_viewport().size
 	find_node("Water").scale = Vector2(projectResolution.x / 300, projectResolution.y / 50)
 	
 func play_small_sound(db):
-	$"/root/Level/Sounds/SmallShootCache".get_child(used_sound_player).volume_db = db
-	$"/root/Level/Sounds/SmallShootCache".get_child(used_sound_player).play()
+	$Sounds/SmallShootCache.get_child(used_sound_player).volume_db = db
+	$Sounds/SmallShootCache.get_child(used_sound_player).play()
 	used_sound_player += 1
 	if used_sound_player > 4:
 		used_sound_player = 0
-	
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
