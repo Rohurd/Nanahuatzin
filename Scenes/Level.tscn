@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/waves.shader" type="Shader" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/Bhangra Bass_49_1.wav" type="AudioStream" id=12]
 [ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Scenes/ExpGen.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -28,7 +29,7 @@ shader_param/tspacing = null
 shader_param/tyspacing = null
 _sections_unfolded = [ "shader_param" ]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material" ]
@@ -225,5 +226,9 @@ autoplay = true
 mix_target = 0
 bus = "Music"
 _sections_unfolded = [ "Pause" ]
+
+[node name="ExpGen" parent="." index="6" instance=ExtResource( 14 )]
+
+[connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
 
 

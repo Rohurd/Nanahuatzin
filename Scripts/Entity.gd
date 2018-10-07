@@ -7,6 +7,7 @@ var default_direction = Vector2(1, 0)
 export var rotation_speed = 2* PI
 export var max_health = 1
 export var health = 1 setget setHealth
+signal death()
 
 var rot_epsilon = 1.5* rotation_speed/60
 
@@ -58,6 +59,8 @@ func move(velocity,delta):
 func setHealth(value):
 	if value >= 0 && value != health:
 		health = value
+		if health == 0:
+			emit_signal("death", self)
 		if is_in_group("player"):
 			emit_signal("health_changed", self)
 

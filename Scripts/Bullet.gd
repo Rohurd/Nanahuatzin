@@ -28,6 +28,7 @@ func _physics_process(delta):
 	pass
 	
 func destroy():
+	$"/root/Level/ExpGen".gen_exp_small(global_position)
 	queue_free()
 	
 func collision_detection(obj):

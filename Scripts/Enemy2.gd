@@ -19,6 +19,7 @@ func _physics_process(delta):
 		var player = collision.collider
 		if (player.is_in_group("player") || player.is_in_group("tower")) && player.health > 0:
 			player.setHealth(player.health-1)
+			$"/root/Level/ExpGen".gen_exp_big(global_position)
 			$"/root/Level/HUD/Points".text = str(int($"/root/Level/HUD/Points".text) + 1)
 			destroy()
 	shoot_timer += delta
