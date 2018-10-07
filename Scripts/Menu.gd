@@ -17,7 +17,7 @@ func _on_screen_resized():
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
-	var projectResolution = get_viewport().size	
+	var projectResolution = get_viewport().size
 	for node in $Ships.get_children() :
 		node.position.x += 1
 		if node.position.x > projectResolution.x + 50 :

@@ -151,7 +151,7 @@ max_enemies = 7
 [node name="BigShoot" type="AudioStreamPlayer" parent="Sounds" index="0"]
 
 stream = ExtResource( 9 )
-volume_db = 0.0
+volume_db = -6.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -241,7 +241,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Effects"
 
 [node name="GameOver" type="AudioStreamPlayer" parent="Sounds" index="6"]
 
@@ -250,7 +250,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Effects"
 
 [node name="Three" type="AudioStreamPlayer" parent="Sounds" index="7"]
 
@@ -259,7 +259,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Effects"
 
 [node name="Two" type="AudioStreamPlayer" parent="Sounds" index="8"]
 
@@ -268,7 +268,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Effects"
 
 [node name="One" type="AudioStreamPlayer" parent="Sounds" index="9"]
 
@@ -277,7 +277,7 @@ volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Effects"
 
 [node name="ExpGen" parent="." index="6" instance=ExtResource( 19 )]
 

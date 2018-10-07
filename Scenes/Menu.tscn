@@ -46,7 +46,6 @@ _sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 [node name="Options" type="Control" parent="." index="2"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -256,6 +255,7 @@ anchor_bottom = 0.5
 margin_left = -210.0
 margin_top = 30.0
 margin_right = -180.0
+margin_bottom = 44.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -400,6 +400,127 @@ text = "Options"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
+
+[node name="BackgroundLeft" type="Panel" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 10.0
+margin_top = -30.0
+margin_right = 200.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="BackgroundRight" type="Panel" parent="." index="5"]
+
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -30.0
+margin_right = -10.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin" ]
+
+[node name="InstructionsLeft" type="RichTextLabel" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -20.0
+margin_right = 217.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = "Controls:
+
+
+W - Move up 
+A - Move left
+S - Move down
+D - Move right
+X - Build towers (pause) / Attack"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Controls:
+
+
+W - Move up 
+A - Move left
+S - Move down
+D - Move right
+X - Build towers (pause) / Attack"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Margin", "custom_fonts" ]
+
+[node name="InstructionsRight" type="RichTextLabel" parent="." index="7"]
+
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -20.0
+margin_right = -20.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = "[right][b]Controls:[/b]
+
+
+Move up - Up
+Move left - Left
+Move down - Down
+Move right - Right
+Shoot - Ctrl[/right]"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Controls:
+
+
+Move up - Up
+Move left - Left
+Move down - Down
+Move right - Right
+Shoot - Ctrl"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Margin" ]
 
 [connection signal="gui_input" from="Options/MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_gui_input"]
 
