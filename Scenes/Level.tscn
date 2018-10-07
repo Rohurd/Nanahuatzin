@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/TimeBar/progress.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Time.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/Bhangra Bass_49_1.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=9]
 
 [sub_resource type="Shader" id=1]
 
@@ -182,6 +184,24 @@ max_lines_visible = -1
 
 max_enemies = 7
 enemies_on_screen = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 9 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
 
