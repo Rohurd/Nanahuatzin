@@ -8,8 +8,25 @@ func _ready():
 	health = 5
 	max_health = 5
 	add_to_group("player")
+	connect("health_changed", self, "burn")
+	$HealZone.connect("healed", self, "revive")
 	connect("health_changed", $"/root/Level/HUD/TriangleHealth", "health_changed")
 	emit_signal("health_changed", self)
+	
+func revive():
+	$"/root/Level".players_alive += 1
+	setHealth(2)
+	
+func burn(player):
+	if health <= 0:
+		$Particles2D.emitting = true
+		$HealZone.show()
+		$HealZone.active = true
+	else:
+		$Particles2D.emitting = false
+		$HealZone.hide()
+		$HealZone.active = false
+		$HealZone.t = 0
 
 func _physics_process(delta):
 	var velocity = Vector2() # The player's movement vector.

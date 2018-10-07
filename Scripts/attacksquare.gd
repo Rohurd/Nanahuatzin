@@ -27,6 +27,7 @@ func activate():
 func _process(delta):
 	if active: 
 		for obj in objects:
+			$"/root/Level/ExpGen".gen_exp_small(obj.global_position)
 			obj.destroy()
 			if obj.is_in_group("enemy"):
 				$"/root/Level/HUD/SquarePoints".text = str(int($"/root/Level/HUD/SquarePoints".text) + 1)
