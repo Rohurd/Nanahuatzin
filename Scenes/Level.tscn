@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/TimeBar/progress.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Time.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/tower_explosion.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=10]
 
 [sub_resource type="Shader" id=1]
 
@@ -55,6 +58,7 @@ shader_param/tyspacing = null
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material" ]
 players_alive = 2
+used_sound_player = 0
 
 [node name="Water" type="Sprite" parent="." index="0"]
 
@@ -103,39 +107,17 @@ anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -150.0
 margin_right = 150.0
+pause = true
 
-[node name="SquarePoints" type="Label" parent="HUD" index="3"]
-
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
-margin_top = -30.0
-margin_right = 215.0
-margin_bottom = -16.0
-rect_scale = Vector2( 2, 2 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "0"
-autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = 1
-_sections_unfolded = [ "Rect" ]
-
-[node name="TrianglePoints" type="Label" parent="HUD" index="4"]
+[node name="Points" type="Label" parent="HUD" index="3"]
 
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -404.0
+margin_left = -194.0
 margin_top = -30.0
-margin_right = -205.0
+margin_right = -97.0
 margin_bottom = -15.0
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -153,16 +135,16 @@ lines_skipped = 0
 max_lines_visible = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Label" type="Label" parent="HUD" index="5"]
+[node name="Label" type="Label" parent="HUD" index="4"]
 
-anchor_left = 0.5
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -22.0
-margin_top = -30.0
-margin_right = 18.0
-margin_bottom = -16.0
+margin_left = -289.0
+margin_top = -28.0
+margin_right = -249.0
+margin_bottom = -14.0
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -177,12 +159,77 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="Spawn_Enemies" parent="." index="4" instance=ExtResource( 7 )]
 
 max_enemies = 7
-enemies_on_screen = 0
 
-[connection signal="health_changed" from="Square" to="HUD/SquareHealth" method="health_changed"]
+[node name="Sounds" type="Node" parent="." index="5"]
+
+[node name="BigShoot" type="AudioStreamPlayer" parent="Sounds" index="0"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TowerDestruction" type="AudioStreamPlayer" parent="Sounds" index="1"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SmallShootCache" type="Node" parent="Sounds" index="2"]
+
+[node name="SmallShoot0" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="0"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SmallShoot1" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="1"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SmallShoot2" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="2"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SmallShoot3" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="3"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SmallShoot4" type="AudioStreamPlayer" parent="Sounds/SmallShootCache" index="4"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 

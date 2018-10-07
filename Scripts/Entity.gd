@@ -17,6 +17,8 @@ func rotate(velocity, delta, to_rotate):
 		to_rotate.rotation += 2*PI
 	if (health == 0) :
 		if is_in_group("enemy") || is_in_group("tower"):
+			if is_in_group("tower") :
+				$"/root/Level/Sounds/TowerDestruction".play()
 			destroy()
 		elif is_in_group("player"):
 			health -= 1
@@ -47,8 +49,8 @@ func move(velocity,delta):
 		velocity = velocity.normalized() * speed
 	move_and_slide(velocity)
 	if $"/root/Level".players_alive > 0:
-		position.x = clamp(position.x, radius, projectResolution.x - radius)
-		position.y = clamp(position.y, radius, projectResolution.y - radius)
+		position.x = clamp(position.x, -radius, projectResolution.x + radius)
+		position.y = clamp(position.y, -radius, projectResolution.y + radius)
 	else :
 		if position.x < -radius || position.y < -radius || position.x > projectResolution.x + radius || position.y > projectResolution.y + radius:
 			destroy()
@@ -76,7 +78,7 @@ func _get_nearest_player():
 		if distance < min_distance:
 			min_distance = distance
 			nearest_player_position = entity.position
-	if $"/root/Level".players_alive == 0:
+	if $"/root/Level".players_alive == 0 || $"/root/Level/HUD/Time".pause:
 		var projectResolution=get_viewport().size
 		nearest_player_position = Vector2(25,0).rotated(rotation + PI) + position
 	return nearest_player_position

@@ -35,9 +35,6 @@ func collision_detection(obj):
 	if obj.is_in_group("enemy") && owner_group != "enemy":
 		obj.setHealth(obj.health -1)
 		if obj.health == 0:
-			if owner_group == "player":
-				$"/root/Level/HUD/TrianglePoints".text = str(int($"/root/Level/HUD/TrianglePoints".text) + 1)
-			elif owner_group == "tower":
-				$"/root/Level/HUD/SquarePoints".text = str(int($"/root/Level/HUD/SquarePoints".text) + 1)
+			$"/root/Level/HUD/Points".text = str(int($"/root/Level/HUD/Points".text) + 1)
 	if !obj.is_in_group("enemy") && owner_group == "enemy":
 		obj.setHealth(obj.health -1)

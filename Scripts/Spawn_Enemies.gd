@@ -18,19 +18,24 @@ func _process(delta):
 	time += delta
 	if time >= 5.0 :
 		while !($"/root/Level/HUD/Time").pause && enemies_on_screen < max_enemies && $"/root/Level".players_alive > 0:
-			var allowed_enemies = clamp(randi() % (int($"/root/Level/HUD/Time".round_count / 3)+1) + 1, 1, 4)
+			var rng = randf()
+			var allowed_enemies = 2
+			if rng < 0.3 : 
+				allowed_enemies = 3
+			elif rng < 0.45 && $"/root/Level/HUD/Time".round_count > 3 :
+				allowed_enemies = 2
 			var scene = load("res://Scenes/Enemy" + str(allowed_enemies) + ".tscn")
 			var scene_instance = scene.instance()
 			scene_instance.set_name("enemy")
-			var x = 0
-			var y = 0
+			var x = -30
+			var y = -30
 			
 			var projectResolution = get_viewport().size
 			if randf() > 0.5:
-				x = 0 if (randf() > 0.5) else projectResolution.x
+				x = -30 if (randf() > 0.5) else projectResolution.x + 30
 				y = randi() % int(projectResolution.y + 1)
 			else:
-				y = 0 if (randf() > 0.5) else projectResolution.y
+				y = -30 if (randf() > 0.5) else projectResolution.y + 30
 				x = randi() % int(projectResolution.x + 1)
 			
 			scene_instance.set_position(Vector2(x,y))
