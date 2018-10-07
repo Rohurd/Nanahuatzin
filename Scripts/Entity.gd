@@ -80,7 +80,7 @@ func _get_nearest_player():
 			nearest_player_position = entity.position
 	if $"/root/Level".players_alive == 0 || $"/root/Level/HUD/Time".pause:
 		var projectResolution=get_viewport().size
-		nearest_player_position = Vector2(25,0).rotated(rotation + PI) + position
+		nearest_player_position = (-position + projectResolution/2).rotated(PI) + position
 	return nearest_player_position
 
 func destroy():
