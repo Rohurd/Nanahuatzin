@@ -231,7 +231,7 @@ max_enemies = 7
 [node name="BigShoot" type="AudioStreamPlayer" parent="Sounds" index="0"]
 
 stream = ExtResource( 11 )
-volume_db = -6.0
+volume_db = -12.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

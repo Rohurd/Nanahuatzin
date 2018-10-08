@@ -17,9 +17,22 @@ The whole game was programmed with Godot using free assets from different sites.
 
 </details> <br/>
 
-["Godot Free Engine"](https://godotengine.org/) <br/>
+## Attributions
+
+Implemented in ["Godot Engine"](https://godotengine.org/) <br/>
+
+### Sound/Music
+
 ["Explosion 1" by LiamG_SFX](https://freesound.org/people/LiamG_SFX/sounds/322481/) <br/>
 ["Explosion" by Iwiploppenisse](https://freesound.org/people/Iwiploppenisse/sounds/156031/) <br/>
 ["Explosion.wav" by Nbs Dark](https://freesound.org/people/Nbs%20Dark/sounds/94185/) <br/>
-["Pirate Pack" by Kenney](https://kenney.nl/assets/pirate-pack) <br/>
 ["Voiceover Pack: Fighter" by Kenney](https://kenney.nl/assets/voiceover-pack-fighter) <br/>
+Wave Sounds from [https://www.freetousesounds.com](https://www.freetousesounds.com)
+Music from [punch deck](https://soundcloud.com/punch-deck/bhangra-bass)
+
+### Art
+
+Ships, Towers, Cannons and red explosions: ["Pirate Pack" by Kenney](https://kenney.nl/assets/pirate-pack) <br/>
+Other effects from ["Effect Pack" by Kenney](https://kenney.nl/assets/particle-pack)
+"Build" and "Battle Mode" text made with [Fira Font"](https://mozilla.github.io/Fira/)
+
