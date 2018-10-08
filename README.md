@@ -1,7 +1,7 @@
 # Nanahuatzin
 Open Jam 2018
 
-Entry for the Open Jam 2018, found on [here](https://itch.io/jam/open-jam-2018)
+Entry for the Open Jam 2018, found [here](https://itch.io/jam/open-jam-2018)
 
 A little multiplayer game, where two people together face hordes of (spanish) inquisitors' ship. The goal is to survive as many waves and gather as many points as possible. Each ship is blessed by the aztec gods (mainly Nanahuatzin), to have special abilities. <br/> <br/>
 One ship has the ability to form an indestructible ring around itself, which blocks bullets and destroys all the enemy ships touching it. During the resting phase it also has the ability to build towers to help the ships defend themselves. The other one can shoot cannon balls indefinitely and every few shoots the ball will split into three to hit your enemies. <br/> <br/>
