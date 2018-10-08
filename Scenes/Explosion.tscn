@@ -1,8 +1,9 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scenes/Explosion.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Explosion.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/explosion1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/flare.png" type="Texture" id=3]
+
 
 [sub_resource type="Animation" id=1]
 
