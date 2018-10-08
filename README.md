@@ -1,12 +1,19 @@
 # Nanahuatzin
-Open Jam 2018
+
+A cooperative 2 player shooter.
+
+Binaries provided for Windows and Linux.
+
+![alt text](/Screenshots/Game2.PNG)
 
 Entry for the Open Jam 2018, found [here](https://itch.io/jam/open-jam-2018)
 
-A little multiplayer game, where two people together face hordes of (spanish) inquisitors' ship. The goal is to survive as many waves and gather as many points as possible. Each ship is blessed by the aztec gods (mainly Nanahuatzin), to have special abilities. <br/> <br/>
+A multiplayer game where two people together face hordes of (spanish) inquisitors' ship. The goal is to survive as many waves and gather as many points as possible. Each ship is blessed by the aztec gods (mainly Nanahuatzin), to have special abilities. <br/> <br/>
 One ship has the ability to form an indestructible ring around itself, which blocks bullets and destroys all the enemy ships touching it. During the resting phase it also has the ability to build towers to help the ships defend themselves. The other one can shoot cannon balls indefinitely and every few shoots the ball will split into three to hit your enemies. <br/> <br/>
 If one ship dies, the other ship can hold a ritual to revive the ship back to life, but this ceremony takes some time during which the ship should be in the radius. Once finished, the other ship is alive again and ready to rumble! <br/> <br/> <br/>
 The whole game was programmed with Godot using free assets from different sites. At the end of this README you will find all the references for the assets used.
+
+Find the sourcecode on [github](https://github.com/Rohurd/Nanahuatzin)
 
 <details>
   <summary>Screenshots</summary>
@@ -16,6 +23,10 @@ The whole game was programmed with Godot using free assets from different sites.
 ![alt text](/Screenshots/Game2.PNG)
 
 </details> <br/>
+
+## License
+
+Code is MIT, Music, Sound and Art should all be creative commons by the author as outlined below.
 
 ## Attributions
 
