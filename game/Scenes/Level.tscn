@@ -13,7 +13,7 @@
 [ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/tower_explosion.wav" type="AudioStream" id=12]
 [ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=13]
-[ext_resource path="res://Sounds/Bhangra Bass_49_1.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/Bhangra Bass_49_1.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Sounds/battle_mode.ogg" type="AudioStream" id=16]
 [ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=17]
