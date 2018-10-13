@@ -3,8 +3,11 @@ extends "res://Scripts/Entity.gd"
 signal health_changed(player)
 
 var shoot_count = 0
+var vel = 0.5
+export var rotation_resistence = 10
 
 func _ready():
+	speed = 100
 	LevelStatus.camera = $Camera
 	LevelStatus.players_living += 1
 	health = 5
@@ -67,12 +70,12 @@ func shoot():
 		shoot_count += 1
 		
 		$"/root/Level/Sounds/BigShoot".play()
+		
+func helm(rot):
+	rotation += rot / rotation_resistence
 
 func _physics_process(delta):
-	if health > 0:
-		var velocity = get_velocity()
-		self.rotation = calc_rotation(self.rotation, velocity, delta)
-		move(velocity,delta)
-	
-	if Input.is_action_just_pressed("triangle_shoot"):
-		shoot()
+	var vec = Vector2(1, 0)
+	vec = vec.rotated(rotation) * vel
+	vec = vec * speed
+	move_and_slide(vec)

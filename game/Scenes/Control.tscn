@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Control.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/control.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/ControlPosition.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -25,22 +26,6 @@ _sections_unfolded = [ "shape" ]
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="ControlPosition" type="Polygon2D" parent="."]
-position = Vector2( 0, -3.50198 )
-polygon = PoolVector2Array( -15, -40, 15, -40, 0, -20 )
-uv = PoolVector2Array(  )
-splits = PoolIntArray(  )
-color = Color( 1, 1, 1, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-skeleton = NodePath("")
-invert_enable = false
-invert_border = 100.0
-bones = [  ]
-_sections_unfolded = [ "polygon" ]
+[node name="ControlPosition" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -35.9936 )
 

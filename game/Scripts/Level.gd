@@ -60,6 +60,7 @@ func _ready():
 	get_tree().get_root().connect("size_changed", self, "_on_screen_resized")
 	_on_screen_resized()
 	LevelStatus.world = $World
+	LevelStatus.ship_controller.controlled_ship = $world/Triangle
 	
 func _process(delta):
 	if Input.is_action_just_pressed("new_player"):

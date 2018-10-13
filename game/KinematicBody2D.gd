@@ -1,7 +1,10 @@
 extends "res://Scripts/Entity.gd"
 
+const controllable = preload("res://Scripts/controllable.gd")
+
 var velocity = Vector2()
 var controller = null
+var candidate = []
 
 func _ready():
 	LevelStatus.player = self
@@ -23,7 +26,8 @@ func abort():
 	pass
 	
 func action():
-	pass
+	if len(candidate) == 1 and candidate[0] is controllable:
+		candidate[0].get_control(self)
 
 func get_velocity():
 	velocity = Vector2()
