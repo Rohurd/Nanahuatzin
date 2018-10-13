@@ -59,7 +59,6 @@ func setHealth(value):
 		health = value
 		if health == 0:
 			emit_signal("death", self)
-			print("death")
 			destroy()
 		if is_in_group("player"):
 			emit_signal("health_changed", self)

@@ -9,7 +9,6 @@ func _ready():
 	pass
 	
 func enemy_died(enemy):
-	print("death registered")
 	enemies_on_screen -= 1
 
 func _process(delta):
