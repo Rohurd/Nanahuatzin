@@ -22,8 +22,10 @@ func health_changed(player):
 		var h = heart.instance()
 		add_child(h)
 		nodes.append(h)
+		i
 	for i in range(max_health - health):
 		var h = heart.instance()
 		h.modulate = Color(0,0,0,1)
 		add_child(h)
 		nodes.append(h)
+		i

@@ -6,6 +6,7 @@ export var attack_cd = 0.5
 var attacking = false
 
 func _ready():
+	LevelStatus.players_living += 1
 	health = 5
 	max_health = 5
 	add_to_group("player")
@@ -15,7 +16,7 @@ func _ready():
 	emit_signal("health_changed", self)
 	
 func revive():
-	$"/root/Level".players_alive += 1
+	LevelStatus.players_living += 1
 	setHealth(2)
 	
 func burn(player):
@@ -39,12 +40,8 @@ func attack():
 		speed = old_speed
 		yield(get_tree().create_timer(attack_cd), "timeout")
 		attacking = false
-	
-func _process(delta):
-	if health > 0 && Input.is_action_just_pressed("square_attack") && !$"/root/Level/HUD/Time".pause:
-		attack()
 
-func _physics_process(delta):
+func get_velocity():
 	var velocity = Vector2() # The player's movement vector.
 	if Input.is_action_pressed("square_right"):
 		velocity.x += 1
@@ -54,6 +51,14 @@ func _physics_process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("square_up"):
 		velocity.y -= 1
-	if health > -1:
-		rotate(velocity, delta, self)
+	return velocity
+	
+func _process(delta):
+	if health > 0 && Input.is_action_just_pressed("square_attack") && !LevelStatus.paused:
+		attack()
+
+func _physics_process(delta):
+	if health > 0:
+		var velocity = get_velocity()
+		self.rotation = calc_rotation(self.rotation, velocity, delta)
 		move(velocity,delta)

@@ -17,7 +17,7 @@ func build_tower():
 		var player = get_parent()
 		var newPos = Vector2(60,0).rotated(player.rotation) + player.position
 		scene_instance.set_position(newPos)
-		player.get_parent().add_child(scene_instance)
+		LevelStatus.world.add_child(scene_instance)
 	else:
 		var building = $"./BuildingRadius".possible_buildings[0]
 		building.build()
@@ -25,6 +25,6 @@ func build_tower():
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
-	if Input.is_action_just_pressed("square_attack") && ($"/root/Level/HUD/Time").pause:
+	if Input.is_action_just_pressed("square_attack") && LevelStatus.paused:
 		build_tower()
 	pass

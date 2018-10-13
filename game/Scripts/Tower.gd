@@ -30,7 +30,8 @@ func _process(delta):
 	
 	if nearest_enemy_position != Vector2(10000, 10000):
 		var velocity = (nearest_enemy_position - position).normalized()
-		rotate(velocity, delta, get_child(2))
+		var cannon = $Cannon
+		cannon.rotation = calc_rotation(cannon.rotation, velocity, delta)
 		shoot_timer += delta
 	
 	if shoot_timer >= 0.5:

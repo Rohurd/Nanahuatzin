@@ -1,43 +1,66 @@
 extends TextureProgress
 
-var timer = 0.0
-var level_time = 20
 export var round_count = 0
-export var pause = true
+var playing = true
+
+export var pause_time = 7
+var level_time = 0
+export var starting_level_time = 20
+export var level_time_increase = 5
+
+enum states {PAUSED, BUILD, BATTLE}
+var state = states.PAUSED
 
 func _ready():
-	max_value = 7 if pause else level_time
-	value = 0 if pause else max_value
-	set_process(true)
+	level_time = starting_level_time
+	start()
 
 func _process(delta):
-	timer += delta
-	if timer >= 1.0 && $"/root/Level".players_alive > 0:
-		# One second has elapsed
-		timer = 0.0
-		if pause:
-			value += 1
-		else:
-			value -= 1
-			if value == 1:
-				$"/root/Level/Sounds/One".play()
-			elif value == 2:
-				$"/root/Level/Sounds/Two".play()
-			elif value == 3:
-				$"/root/Level/Sounds/Three".play()
-		
-	if !pause && value <= 0:
-		$"/root/Level/HUD/ModeLabel/AnimationPlayer".play("build")
-		pause = !pause
-		level_time = int(level_time + 5)
-		var enemy_node = $"/root/Level/Spawn_Enemies"
-		enemy_node.max_enemies = int(enemy_node.max_enemies + 10)
-		round_count += 1
-		max_value = 7 if pause else level_time
-		value = 0
-	elif pause && value >= max_value:
-		$"/root/Level/HUD/ModeLabel/AnimationPlayer".play("battle")
-		pause = !pause
-		max_value = 7 if pause else level_time
-		value = max_value
-		$"/root/Level/Sounds/BattleStart".play()
+	match state:
+		PAUSED:
+			pass
+		BUILD:
+			value += (100 / pause_time) * delta
+			if value >= 100:
+				end_pause()
+				start_level()
+		BATTLE:
+			value -= (100 / level_time) * delta
+			if value <= 0:
+				end_level()
+				start_pause()
+
+func start():
+	value = 0
+	state = states.BUILD
+
+func start_level():
+	state = states.BATTLE
+	LevelStatus.paused = false
+	value = 100
+	$"/root/Level/HUD/ModeLabel/AnimationPlayer".play("battle")
+	$"/root/Level/Sounds/BattleStart".play()
+	
+	yield(get_tree().create_timer(level_time-3), "timeout")
+	$"/root/Level/Sounds/Three".play()
+	yield(get_tree().create_timer(1), "timeout")
+	$"/root/Level/Sounds/Two".play()
+	yield(get_tree().create_timer(1), "timeout")
+	$"/root/Level/Sounds/One".play()
+	yield(get_tree().create_timer(1), "timeout")
+
+func end_level():
+	level_time += level_time_increase
+	LevelStatus.max_enemies += 10
+	round_count += 1
+	
+func start_pause():
+	state = states.BUILD
+	LevelStatus.paused = true
+	$"/root/Level/HUD/ModeLabel/AnimationPlayer".play("build")
+	
+	
+
+func end_pause():
+	pass
+

@@ -76,32 +76,24 @@ anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale", "Spread" ]
 
 [node name="Triangle" type="KinematicBody2D"]
-
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+motion/sync_to_physics = false
 script = ExtResource( 1 )
-speed = 1
-radius = 15
-rotation_speed = 6.28319
-max_health = 5
-health = 5
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 rotation = -1.5708
 scale = Vector2( 0.45, 0.45 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
 shape = SubResource( 1 )
 
-[node name="Particles2D" type="Particles2D" parent="." index="2"]
-
+[node name="Particles2D" type="Particles2D" parent="."]
 z_index = 3
 emitting = false
 amount = 15
@@ -123,6 +115,5 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Visibility", "Z Index" ]
 
-[node name="HealZone" parent="." index="3" instance=ExtResource( 4 )]
-
+[node name="HealZone" parent="." instance=ExtResource( 4 )]
 

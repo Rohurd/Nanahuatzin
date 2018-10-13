@@ -1,21 +1,17 @@
 extends KinematicBody2D
 
 export var speed = 250
-export var radius = 15
 var target_rotation = 0
 var default_direction = Vector2(1, 0)
 export var rotation_speed = 2* PI
 export var max_health = 1
 export var health = 1 setget setHealth
 signal death()
+var radius = 15
 
 var rot_epsilon = 1.5* rotation_speed/60
 
-func rotate(velocity, delta, to_rotate):
-	if to_rotate.rotation > PI:
-		to_rotate.rotation -= 2*PI
-	if to_rotate.rotation < -PI:
-		to_rotate.rotation += 2*PI
+func _process(delta):
 	if (health == 0) :
 		if is_in_group("enemy") || is_in_group("tower"):
 			if is_in_group("tower") :
@@ -27,42 +23,44 @@ func rotate(velocity, delta, to_rotate):
 			if $"/root/Level".players_alive == 0:
 				$"/root/Level/Sounds/GameOver".play()
 		return
-	var projectResolution=get_viewport().size
+
+# Calculate rotation of the next frame when moving with _velocity_
+func calc_rotation(current_rotation, velocity, delta):
+	var target_rotation = current_rotation
+	if current_rotation > PI:
+		current_rotation -= 2*PI
+	if current_rotation < -PI:
+		current_rotation += 2*PI
 	if velocity.length() > 0:
 		velocity = velocity.normalized()
 		target_rotation = -velocity.angle_to(default_direction)
-	else:
-		target_rotation = to_rotate.rotation
-	var drot = target_rotation - to_rotate.rotation
+
+	var drot = target_rotation - current_rotation
 
 	if abs(drot) < rot_epsilon:
-		to_rotate.rotation = target_rotation
+		current_rotation = target_rotation
 	elif drot < -PI:
-		to_rotate.rotation += rotation_speed*delta
+		current_rotation += rotation_speed*delta
 	elif drot < 0:
-		to_rotate.rotation -= rotation_speed*delta
+		current_rotation -= rotation_speed*delta
 	elif drot < PI:
-		to_rotate.rotation += rotation_speed*delta
+		current_rotation += rotation_speed*delta
 	else:
-		to_rotate.rotation -= rotation_speed*delta
+		current_rotation -= rotation_speed*delta
+	return current_rotation
 
 func move(velocity,delta):
-	var projectResolution=get_viewport().size
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 	move_and_slide(velocity)
-	if $"/root/Level".players_alive > 0:
-		position.x = clamp(position.x, -radius, projectResolution.x + radius)
-		position.y = clamp(position.y, -radius, projectResolution.y + radius)
-	else :
-		if position.x < -radius || position.y < -radius || position.x > projectResolution.x + radius || position.y > projectResolution.y + radius:
-			destroy()
 
 func setHealth(value):
 	if value >= 0 && value != health:
 		health = value
 		if health == 0:
 			emit_signal("death", self)
+			print("death")
+			destroy()
 		if is_in_group("player"):
 			emit_signal("health_changed", self)
 
@@ -83,12 +81,10 @@ func _get_nearest_player():
 		if distance < min_distance:
 			min_distance = distance
 			nearest_player_position = entity.position
-	if $"/root/Level".players_alive == 0 || $"/root/Level/HUD/Time".pause:
+	if $"/root/Level".players_alive == 0 || LevelStatus.paused:
 		var projectResolution=get_viewport().size
 		nearest_player_position = (-position + projectResolution/2).rotated(PI) + position
 	return nearest_player_position
 
 func destroy():
-	if is_in_group("enemy") && ($"/root/Level/Spawn_Enemies").enemies_on_screen > 0:
-		($"/root/Level/Spawn_Enemies").enemies_on_screen -= 1
 	queue_free()

@@ -8,12 +8,13 @@ func _ready():
 	# Initialization here
 	get_tree().get_root().connect("size_changed", self, "_on_screen_resized")
 	_on_screen_resized()
+	LevelStatus.world = $World
 
 func init(difficulty):
 	match difficulty:
-		"Easy" : $Spawn_Enemies.max_enemies = 5
-		"Medium" : $Spawn_Enemies.max_enemies = 10
-		"Hard" : $Spawn_Enemies.max_enemies = 20
+		"Easy" : LevelStatus.max_enemies = 5
+		"Medium" : LevelStatus.max_enemies = 10
+		"Hard" : LevelStatus.max_enemies = 20
 
 func _on_screen_resized():
 	var projectResolution = get_viewport().size

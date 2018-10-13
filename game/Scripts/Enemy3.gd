@@ -12,7 +12,7 @@ func _ready():
 func _physics_process(delta):
 	target_pos = _get_nearest_player()
 	var velocity = (target_pos - position).normalized()
-	rotate(velocity, delta, self)
+	self.rotation = calc_rotation(self.rotation, velocity, delta)
 	move(velocity,delta)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
@@ -21,7 +21,7 @@ func _physics_process(delta):
 			player.setHealth(player.health-1)
 			$"/root/Level/ExpGen".gen_exp_big(global_position)
 			$"/root/Level/HUD/Points".text = str(int($"/root/Level/HUD/Points".text) + 1)
-			destroy()
+			setHealth(0)
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
