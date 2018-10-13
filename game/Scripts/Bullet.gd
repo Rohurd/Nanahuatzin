@@ -3,8 +3,8 @@ extends Area2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var velocity
-var owner_group
+var velocity = Vector2()
+var owner_group = ""
 
 func _ready():
 	add_to_group("bullet")
@@ -18,14 +18,8 @@ func init(velo, group):
 	pass
 
 func _physics_process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
 	position.x += velocity.x
 	position.y += velocity.y
-	var projectResolution=get_viewport().size
-	if position.x > projectResolution.x || position.y > projectResolution.y:
-		queue_free()
-	pass
 	
 func destroy():
 	$"/root/Level/ExpGen".gen_exp_small(global_position)

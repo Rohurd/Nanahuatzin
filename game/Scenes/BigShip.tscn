@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/ship_view.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.85324, 96.7611 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.95924, 22.7331 )
+
+[node name="BigShip" type="StaticBody2D"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+physics_material_override = null
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+_sections_unfolded = [ "texture" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 0
+polygon = PoolVector2Array( -100, 70, -88.3383, 142.167, -56.4638, 221.514, -25.2674, 265.596, -0.494034, 289.361, 0.124634, 300.197, -63.7513, 228.859, -99.8966, 139.862, -110, 70 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -105.086, -26.2554 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 105.487, -26.2554 )
+shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+build_mode = 0
+polygon = PoolVector2Array( 100, 70, 80, 170, 44.6765, 238.98, 1.96918, 289.122, 1.96918, 300.544, 52.6543, 246.29, 89.7758, 174.902, 110, 70 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( -119.774, -134.784 )
+rotation = -0.785397
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2( 120.175, -135.351 )
+rotation = 0.785397
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+build_mode = 0
+polygon = PoolVector2Array( -126.48, -148.463, -124.959, -188.981, -115.367, -221.188, -89.1103, -254.739, -54.2272, -277.861, -19.4249, -287.886, 21.3973, -287.886, 54.6519, -277.539, 89.0779, -254.589, 112.593, -225.43, 124.61, -194.004, 126.226, -148.748, 295.216, -148.918, 0.648438, -430.711, -299.931, -151.172 )
+

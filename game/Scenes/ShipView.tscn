@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/BigShip.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Cannon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Control.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/RedChar.tscn" type="PackedScene" id=4]
+
+[node name="ShipView" type="Node2D"]
+_sections_unfolded = [ "Transform" ]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 0, -0.25592 )
+polygon = PoolVector2Array( 0, 0, 400, 0, 400, 600, 0, 600 )
+uv = PoolVector2Array(  )
+splits = PoolIntArray(  )
+color = Color( 0.141176, 0.47451, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+skeleton = NodePath("")
+invert_enable = false
+invert_border = 100.0
+bones = [  ]
+_sections_unfolded = [ "polygon" ]
+
+[node name="BigShip" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 300 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Cannon" parent="." instance=ExtResource( 2 )]
+position = Vector2( 273.092, 311.496 )
+
+[node name="Control" parent="." instance=ExtResource( 3 )]
+position = Vector2( 200, 85 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="RedChar" parent="." instance=ExtResource( 4 )]
+position = Vector2( 194.533, 245.991 )
+

@@ -8,8 +8,7 @@
 custom_solver_bias = 0.0
 radius = 5.0
 
-[node name="Bullet" type="Area2D" index="0"]
-
+[node name="Bullet" type="Area2D"]
 scale = Vector2( 2, 2 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -21,16 +20,12 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
-
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="." to="." method="collision_detection"]
-
-

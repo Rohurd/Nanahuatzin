@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="30"
+   height="20"
+   viewBox="0 0 7.9374996 5.2916668"
+   version="1.1"
+   id="svg12954"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
+   sodipodi:docname="cannon.svg">
+  <defs
+     id="defs12948" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.2"
+     inkscape:cx="17.759788"
+     inkscape:cy="7.1234554"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1360"
+     inkscape:window-height="687"
+     inkscape:window-x="0"
+     inkscape:window-y="46"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata12951">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-291.70832)">
+    <g
+       id="g12929"
+       transform="translate(-261.93751,-17.462517)"
+       inkscape:export-filename="/home/syrn/git/Nanahuatzin/game/Sprites/cannon.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g12027">
+        <g
+           transform="matrix(0.26458333,0,0,0.26458333,0,291.70832)"
+           id="use12025">
+          <path
+             style="fill:#4e5f5f;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13530"
+             d="m 1009.5,86 v -2 h -5 v 2 h 5 M 992,84 v 2 h 5 v -2 h -5 m 5,-16 v -2 h -5 v 2 h 5 m 7.5,0 h 5 v -2 h -5 z" />
+          <path
+             style="fill:#83592e;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13532"
+             d="m 1004.5,68 h -7.5 -5 q -0.85,0 -1.4,0.6 -0.6,0.55 -0.6,1.4 v 12 q 0,0.85 0.6,1.45 0.55,0.55 1.4,0.55 h 5 7.5 5 2.5 q 0.85,0 1.45,-0.55 Q 1014,82.85 1014,82 V 70 q 0,-0.85 -0.55,-1.4 -0.6,-0.6 -1.45,-0.6 h -2.5 -5 m 7.5,2 v 2 8 2 h -20 v -2 -8 -2 z" />
+          <path
+             style="fill:#d2904a;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13534"
+             d="m 992,72 v 8 h 20 v -8 z" />
+          <path
+             style="fill:#af783e;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13536"
+             d="m 992,80 v 2 h 20 v -2 h -20 m 20,-8 v -2 h -20 v 2 z" />
+        </g>
+      </g>
+      <g
+         id="g12031">
+        <g
+           transform="matrix(0.26458333,0,0,0.26458333,0,291.70832)"
+           id="use12029">
+          <path
+             style="fill:#4e5f5f;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13550"
+             d="m 1002.95,70 q -2.45,-0.1 -3.5,2.6 -0.5,1.15 -0.45,3.35 v 0.1 q -0.1,2.65 0.6,3.95 1.05,2.05 3.3,2 h 1.35 q 2.1,0 4.2,-0.4 2.35,-0.15 4.7,-0.3 0.2,0.1 0.45,0.2 0.15,0.1 0.35,0.15 0.35,0.1 0.75,0.1 h 1 q 0.75,0 1.45,-0.4 h 0.05 q 0.8,-0.6 1.1,-1.4 V 80 q 1.35,-3.95 0.05,-7.8 -0.35,-1.1 -1.35,-1.55 -0.6,-0.35 -1.3,-0.35 h -1 q -0.6,0 -1.25,0.3 -0.15,0.05 -0.3,0.15 -2.3,-0.2 -4.65,-0.35 -2.15,-0.4 -4.25,-0.4 h -1.3 m -1.8,3.25 q 0.55,-1.45 1.8,-1.45 h 1.3 q 2.05,0 4.1,0.4 2.8,0.2 5.5,0.4 l 0.1,-0.05 q 0.15,-0.25 0.3,-0.35 0.25,-0.1 0.45,-0.1 h 1 q 0.25,0 0.5,0.15 0.25,0.15 0.35,0.45 1.2,3.3 0,6.65 -0.1,0.25 -0.35,0.45 -0.25,0.15 -0.5,0.15 h -1 q -0.2,0 -0.45,-0.1 -0.15,-0.15 -0.3,-0.35 l -0.1,-0.1 q -2.75,0.2 -5.55,0.4 -2,0.4 -4.05,0.4 H 1003 q -0.05,0 -0.1,0 -2.25,0.05 -2.1,-4.15 0,-0.05 0,-0.1 -0.05,-1.8 0.35,-2.7 z" />
+          <path
+             style="fill:#7e989a;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13552"
+             d="m 1014.25,72.2 q -0.15,0.1 -0.3,0.35 v 6.95 q 0.15,0.2 0.3,0.35 0.25,0.1 0.45,0.1 h 1 q 0.25,0 0.5,-0.15 0.25,-0.2 0.35,-0.45 1.2,-3.35 0,-6.65 -0.1,-0.3 -0.35,-0.45 -0.25,-0.15 -0.5,-0.15 h -1 q -0.2,0 -0.45,0.1 z" />
+          <path
+             style="fill:#748c8e;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13554"
+             d="m 1002.95,71.8 q -1.25,0 -1.8,1.45 -0.4,0.9 -0.35,2.7 0,0.05 0,0.1 -0.15,4.2 2.1,4.15 0.05,0 0.1,0 h 1.25 q 2.05,0 4.05,-0.4 2.8,-0.2 5.55,-0.4 l 0.1,0.1 v -6.95 l -0.1,0.05 q -2.7,-0.2 -5.5,-0.4 -2.05,-0.4 -4.1,-0.4 z" />
+        </g>
+      </g>
+      <g
+         id="g12903">
+        <g
+           transform="matrix(0.26458333,0,0,0.26458333,0,291.70832)"
+           id="use12901">
+          <path
+             style="fill:#4e5f5f;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13540"
+             d="m 1009.5,86 v -2 h -5 v 2 h 5 M 992,84 v 2 h 5 v -2 h -5 m 5,-16 v -2 h -5 v 2 h 5 m 7.5,0 h 5 v -2 h -5 z" />
+          <path
+             style="fill:#83592e;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13542"
+             d="m 1004.5,68 h -7.5 -5 q -0.85,0 -1.4,0.6 -0.6,0.55 -0.6,1.4 v 12 q 0,0.85 0.6,1.45 0.55,0.55 1.4,0.55 h 5 7.5 5 2.5 q 0.85,0 1.45,-0.55 Q 1014,82.85 1014,82 V 70 q 0,-0.85 -0.55,-1.4 -0.6,-0.6 -1.45,-0.6 h -2.5 -5 m 7.5,2 v 2 8 2 h -20 v -2 -8 -2 z" />
+          <path
+             style="fill:#d2904a;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13544"
+             d="m 992,72 v 8 h 20 v -8 z" />
+          <path
+             style="fill:#af783e;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13546"
+             d="m 992,80 v 2 h 20 v -2 h -20 m 20,-8 v -2 h -20 v 2 z" />
+        </g>
+      </g>
+      <g
+         id="g12907">
+        <g
+           transform="matrix(0.26458333,0,0,0.26458333,0,291.70832)"
+           id="use12905">
+          <path
+             style="fill:#4e5f5f;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13558"
+             d="m 1002.95,70 q -2.45,-0.1 -3.5,2.6 -0.5,1.15 -0.45,3.35 v 0.1 q -0.1,2.65 0.6,3.95 1.05,2.05 3.3,2 h 1.35 q 2.1,0 4.2,-0.4 2.35,-0.15 4.7,-0.3 0.2,0.1 0.45,0.2 0.15,0.1 0.35,0.15 0.35,0.1 0.75,0.1 h 1 q 0.75,0 1.45,-0.4 h 0.05 q 0.8,-0.6 1.1,-1.4 V 80 q 1.35,-3.95 0.05,-7.8 -0.35,-1.1 -1.35,-1.55 -0.6,-0.35 -1.3,-0.35 h -1 q -0.6,0 -1.25,0.3 -0.15,0.05 -0.3,0.15 -2.3,-0.2 -4.65,-0.35 -2.15,-0.4 -4.25,-0.4 h -1.3 m -1.8,3.25 q 0.55,-1.45 1.8,-1.45 h 1.3 q 2.05,0 4.1,0.4 2.8,0.2 5.5,0.4 l 0.1,-0.05 q 0.15,-0.25 0.3,-0.35 0.25,-0.1 0.45,-0.1 h 1 q 0.25,0 0.5,0.15 0.25,0.15 0.35,0.45 1.2,3.3 0,6.65 -0.1,0.25 -0.35,0.45 -0.25,0.15 -0.5,0.15 h -1 q -0.2,0 -0.45,-0.1 -0.15,-0.15 -0.3,-0.35 l -0.1,-0.1 q -2.75,0.2 -5.55,0.4 -2,0.4 -4.05,0.4 H 1003 q -0.05,0 -0.1,0 -2.25,0.05 -2.1,-4.15 0,-0.05 0,-0.1 -0.05,-1.8 0.35,-2.7 z" />
+          <path
+             style="fill:#7e989a;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13560"
+             d="m 1014.25,72.2 q -0.15,0.1 -0.3,0.35 v 6.95 q 0.15,0.2 0.3,0.35 0.25,0.1 0.45,0.1 h 1 q 0.25,0 0.5,-0.15 0.25,-0.2 0.35,-0.45 1.2,-3.35 0,-6.65 -0.1,-0.3 -0.35,-0.45 -0.25,-0.15 -0.5,-0.15 h -1 q -0.2,0 -0.45,0.1 z" />
+          <path
+             style="fill:#748c8e;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path13562"
+             d="m 1002.95,71.8 q -1.25,0 -1.8,1.45 -0.4,0.9 -0.35,2.7 0,0.05 0,0.1 -0.15,4.2 2.1,4.15 0.05,0 0.1,0 h 1.25 q 2.05,0 4.05,-0.4 2.8,-0.2 5.55,-0.4 l 0.1,0.1 v -6.95 l -0.1,0.05 q -2.7,-0.2 -5.5,-0.4 -2.05,-0.4 -4.1,-0.4 z" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

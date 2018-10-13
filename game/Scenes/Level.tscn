@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/waves.shader" type="Shader" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=20]
 [ext_resource path="res://tileset.tres" type="TileSet" id=21]
 [ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/ShipView.tscn" type="PackedScene" id=23]
 
 [sub_resource type="ShaderMaterial" id=5]
 
@@ -135,7 +136,6 @@ script = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 5
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -412,8 +412,68 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -65536, 0, 0, -65535, 6, 0, -65534, 6, 0, -65533, 6, 0, -65532, 12, 0, 0, 1, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 13, 0, 65536, 2, 0, 65537, 8, 0, 65538, 8, 0, 65539, 8, 0, 65540, 14, 0 )
+tile_data = PoolIntArray( -1, 8, 0, -65536, 8, 0, -65535, 8, 0, -65534, 8, 0, -65533, 8, 0, -65532, 8, 0, -65531, 8, 0, -65530, 8, 0, -65529, 8, 0, -65528, 8, 0, -65527, 8, 0, -65526, 8, 0, -65525, 8, 0, -65524, 8, 0, -65523, 8, 0, -65522, 8, 0, -65521, 8, 0, -65520, 8, 0, -65519, 8, 0, -65518, 8, 0, -65517, 8, 0, -65516, 8, 0, -65515, 8, 0, -65514, 8, 0, -65513, 8, 0, -65512, 8, 0, -65511, 8, 0, -65510, 8, 0, -65509, 8, 0, -65508, 8, 0, -65507, 8, 0, -65506, 8, 0, -65505, 8, 0, -65504, 8, 0, -65503, 8, 0, -65502, 8, 0, -65501, 8, 0, -65500, 8, 0, -65499, 8, 0, -65498, 8, 0, -65497, 8, 0, -65496, 8, 0, -65495, 8, 0, -65494, 8, 0, -65493, 8, 0, -65492, 8, 0, -65491, 8, 0, -65490, 8, 0, -65489, 8, 0, -65488, 8, 0, -65487, 8, 0, -65486, 8, 0, -65485, 8, 0, -65484, 8, 0, -65483, 8, 0, -65482, 8, 0, -65481, 8, 0, -65480, 8, 0, -65479, 8, 0, -65478, 8, 0, -65477, 8, 0, -65476, 8, 0, -65475, 8, 0, -65474, 8, 0, -65473, 8, 0, -65472, 8, 0, -65471, 8, 0, -65470, 8, 0, -65469, 8, 0, 65535, 13, 0, 68, 1, 0, 131071, 13, 0, 65604, 1, 0, 196607, 13, 0, 131140, 1, 0, 262143, 13, 0, 196676, 1, 0, 327679, 13, 0, 262212, 1, 0, 393215, 13, 0, 327748, 1, 0, 458751, 13, 0, 393284, 1, 0, 524287, 13, 0, 458820, 1, 0, 458821, 1, 0, 589823, 13, 0, 524356, 1, 0, 524357, 1, 0, 655359, 13, 0, 589892, 1, 0, 589893, 1, 0, 720895, 13, 0, 655428, 1, 0, 786431, 13, 0, 720964, 1, 0, 851967, 13, 0, 786500, 1, 0, 917503, 13, 0, 852036, 1, 0, 983039, 13, 0, 917572, 1, 0, 1048575, 13, 0, 983108, 1, 0, 1114111, 13, 0, 1048644, 1, 0, 1179647, 13, 0, 1114180, 1, 0, 1114181, 1, 0, 1245183, 13, 0, 1179716, 1, 0, 1179717, 1, 0, 1310719, 13, 0, 1245252, 1, 0, 1245253, 1, 0, 1376255, 13, 0, 1310788, 1, 0, 1310789, 1, 0, 1441791, 13, 0, 1376324, 1, 0, 1507327, 13, 0, 1441860, 1, 0, 1572863, 13, 0, 1507396, 1, 0, 1638399, 13, 0, 1572932, 1, 0, 1703935, 13, 0, 1638468, 1, 0, 1769471, 13, 0, 1704004, 1, 0, 1835007, 13, 0, 1769540, 1, 0, 1900543, 13, 0, 1835076, 1, 0, 1966079, 13, 0, 1900612, 1, 0, 2031615, 13, 0, 1966148, 1, 0, 2097151, 13, 0, 2031684, 1, 0, 2162687, 13, 0, 2097220, 1, 0, 2228223, 13, 0, 2162756, 1, 0, 2293759, 13, 0, 2228292, 1, 0, 2359295, 13, 0, 2293828, 1, 0, 2424831, 13, 0, 2359364, 1, 0, 2490367, 13, 0, 2424900, 1, 0, 2555903, 13, 0, 2490436, 1, 0, 2621439, 13, 0, 2555972, 1, 0, 2686975, 13, 0, 2621508, 1, 0, 2752511, 13, 0, 2687044, 1, 0, 2818047, 13, 0, 2752580, 1, 0, 2883583, 13, 0, 2818116, 1, 0, 2883584, 6, 0, 2883585, 6, 0, 2883586, 6, 0, 2883587, 6, 0, 2883588, 6, 0, 2883589, 6, 0, 2883590, 6, 0, 2883591, 6, 0, 2883592, 6, 0, 2883593, 6, 0, 2883594, 6, 0, 2883595, 6, 0, 2883596, 6, 0, 2883597, 6, 0, 2883598, 6, 0, 2883599, 6, 0, 2883600, 6, 0, 2883601, 6, 0, 2883602, 6, 0, 2883603, 6, 0, 2883604, 6, 0, 2883605, 6, 0, 2883606, 6, 0, 2883607, 6, 0, 2883608, 6, 0, 2883609, 6, 0, 2883610, 6, 0, 2883611, 6, 0, 2883612, 6, 0, 2883613, 6, 0, 2883614, 6, 0, 2883615, 6, 0, 2883616, 6, 0, 2883617, 6, 0, 2883618, 6, 0, 2883619, 6, 0, 2883620, 6, 0, 2883621, 6, 0, 2883622, 6, 0, 2883623, 6, 0, 2883624, 6, 0, 2883625, 6, 0, 2883626, 6, 0, 2883627, 6, 0, 2883628, 6, 0, 2883629, 6, 0, 2883630, 6, 0, 2883631, 6, 0, 2883632, 6, 0, 2883633, 6, 0, 2883634, 6, 0, 2883635, 6, 0, 2883636, 6, 0, 2883637, 6, 0, 2883638, 6, 0, 2883639, 6, 0, 2883640, 6, 0, 2883641, 6, 0, 2883642, 6, 0, 2883643, 6, 0, 2883644, 6, 0, 2883645, 6, 0, 2883646, 6, 0, 2883647, 6, 0, 2883648, 6, 0, 2883649, 6, 0, 2883650, 6, 0, 2883651, 6, 0 )
 
 [node name="Triangle" parent="world" instance=ExtResource( 22 )]
-position = Vector2( 462.31, 211.858 )
+position = Vector2( 761.172, 313.571 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 8
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="CanvasLayer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 629.0
+margin_bottom = 593.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch = false
+stretch_shrink = 1
+_sections_unfolded = [ "Margin" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Viewport" type="Viewport" parent="CanvasLayer/ViewportContainer"]
+arvr = false
+size = Vector2( 400, 600 )
+own_world = false
+world = null
+transparent_bg = false
+msaa = 0
+hdr = true
+disable_3d = false
+keep_3d_linear = false
+usage = 0
+debug_draw = 0
+render_target_v_flip = false
+render_target_clear_mode = 0
+render_target_update_mode = 3
+audio_listener_enable_2d = false
+audio_listener_enable_3d = false
+physics_object_picking = false
+gui_disable_input = false
+gui_snap_controls_to_pixels = true
+shadow_atlas_size = 0
+shadow_atlas_quad_0 = 2
+shadow_atlas_quad_1 = 2
+shadow_atlas_quad_2 = 3
+shadow_atlas_quad_3 = 4
+_sections_unfolded = [ "Render Target", "Rendering" ]
+
+[node name="ShipView" parent="CanvasLayer/ViewportContainer/Viewport" instance=ExtResource( 23 )]
+
+[node name="Players" type="Node" parent="."]
 
