@@ -20,6 +20,8 @@ func new_player():
 	$Players.add_child(controller)
 	controller.index = 1
 	LevelStatus.player.controller = controller
+	
+	$HUD/MapLabels.get_child(0).show()
 
 func _input(e):
 	if remapping:
@@ -43,11 +45,14 @@ func _input(e):
 			for mapped_input in mapped:
 				InputMap.action_erase_event(action, mapped_input)
 			InputMap.action_add_event(action, e)
+			$HUD/MapLabels.get_child(remapping_i).hide()
 			remapping_i += 1
 			if remapping_i >= len(controlls):
 				remapping = false
 				remapping_i = 0
 				remapping_controller = null
+			else:
+				$HUD/MapLabels.get_child(remapping_i).show()
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
