@@ -10,8 +10,13 @@ uniform float yspacing = 50;
 uniform float tspacing = 0.4;
 uniform float tyspacing = 0.4;
 
+uniform float x_trans = 0;
+uniform float y_trans = 0;
+
 void fragment() {
 	vec4 p = FRAGCOORD;
+	p.x += x_trans;
+	p.y -= y_trans;
 	float x = p.x/xspacing + p.y/yspacing - tspacing * TIME + 0.3* sin(TIME + 0.01*p.x) * sin(0.1*p.y);
 	float y = p.y/yyspacing;
 	COLOR = vec4(0.0, 0.0, 1.0, 1.0);

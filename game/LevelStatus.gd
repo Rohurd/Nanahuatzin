@@ -5,6 +5,7 @@ var players_living = 0
 var max_enemies = 0
 var paused = true
 var world = null
+var camera = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

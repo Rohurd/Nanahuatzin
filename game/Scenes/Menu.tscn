@@ -17,6 +17,8 @@ shader_param/yyspacing = null
 shader_param/yspacing = null
 shader_param/tspacing = null
 shader_param/tyspacing = null
+shader_param/x_trans = null
+shader_param/y_trans = null
 _sections_unfolded = [ "Resource" ]
 
 [node name="Menu" type="Control"]

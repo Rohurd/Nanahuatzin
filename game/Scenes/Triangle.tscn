@@ -82,6 +82,10 @@ collision_mask = 1
 collision/safe_margin = 0.08
 motion/sync_to_physics = false
 script = ExtResource( 1 )
+speed = 250
+rotation_speed = 6.28319
+max_health = 1
+health = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -1.5708
@@ -116,4 +120,29 @@ v_frames = 1
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Visibility", "Z Index" ]
 
 [node name="HealZone" parent="." instance=ExtResource( 4 )]
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Smoothing", "Visibility" ]
 

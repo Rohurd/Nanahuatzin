@@ -3,25 +3,25 @@
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/waves.shader" type="Shader" id=2]
 [ext_resource path="res://Sprites/TimeBar/progress.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Time.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/big_text.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/battlemode.png" type="Texture" id=7]
-[ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=8]
-[ext_resource path="res://Sounds/tower_explosion.wav" type="AudioStream" id=9]
-[ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=10]
-[ext_resource path="res://Sounds/Bhangra Bass_49_1.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=12]
-[ext_resource path="res://Sounds/battle_mode.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Sounds/3.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Sounds/2.ogg" type="AudioStream" id=16]
-[ext_resource path="res://Sounds/1.ogg" type="AudioStream" id=17]
-[ext_resource path="res://Scenes/ExpGen.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Square.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=21]
-[ext_resource path="res://tileset.tres" type="TileSet" id=22]
+[ext_resource path="res://Scenes/Water.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Time.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/big_text.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/battlemode.png" type="Texture" id=8]
+[ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/tower_explosion.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Bhangra Bass_49_1.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/battle_mode.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/3.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/2.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/1.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Scenes/ExpGen.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=20]
+[ext_resource path="res://tileset.tres" type="TileSet" id=21]
+[ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=22]
 
 [sub_resource type="ShaderMaterial" id=5]
 
@@ -35,6 +35,8 @@ shader_param/yyspacing = null
 shader_param/yspacing = null
 shader_param/tspacing = null
 shader_param/tyspacing = null
+shader_param/x_trans = null
+shader_param/y_trans = null
 _sections_unfolded = [ "shader_param" ]
 
 [sub_resource type="Animation" id=1]
@@ -111,30 +113,39 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node"]
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material" ]
 players_alive = 2
 used_sound_player = 0
 
-[node name="Water" type="Sprite" parent="."]
-show_behind_parent = true
-material = SubResource( 5 )
-texture = ExtResource( 3 )
-centered = false
-_sections_unfolded = [ "Material", "Visibility" ]
-
-[node name="HUD" type="CanvasLayer" parent="."]
-layer = 2
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="SquareHealth" parent="HUD" instance=ExtResource( 4 )]
+[node name="Water" type="Sprite" parent="Background"]
+show_behind_parent = true
+material = SubResource( 5 )
+texture = ExtResource( 3 )
+centered = false
+script = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 5
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="SquareHealth" parent="HUD" instance=ExtResource( 5 )]
 alignment = 2
 
-[node name="TriangleHealth" parent="HUD" instance=ExtResource( 4 )]
+[node name="TriangleHealth" parent="HUD" instance=ExtResource( 5 )]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -40.0
@@ -142,7 +153,7 @@ margin_right = 0.0
 grow_horizontal = 0
 _sections_unfolded = [ "Grow Direction" ]
 
-[node name="Time" parent="HUD" instance=ExtResource( 5 )]
+[node name="Time" parent="HUD" instance=ExtResource( 6 )]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -150.0
@@ -227,12 +238,12 @@ size_flags_vertical = 1
 
 [node name="build" type="Sprite" parent="HUD/ModeLabel"]
 self_modulate = Color( 1, 1, 1, 0 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="battle" type="Sprite" parent="HUD/ModeLabel"]
 self_modulate = Color( 1, 1, 1, 0 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/ModeLabel"]
@@ -249,7 +260,7 @@ blend_times = [  ]
 editor/display_folded = true
 
 [node name="BigShoot" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 volume_db = -12.0
 pitch_scale = 1.0
 autoplay = false
@@ -258,7 +269,7 @@ mix_target = 0
 bus = "Effects"
 
 [node name="TowerDestruction" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -270,7 +281,7 @@ bus = "Effects"
 editor/display_folded = true
 
 [node name="SmallShoot0" type="AudioStreamPlayer" parent="Sounds/SmallShootCache"]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -279,7 +290,7 @@ mix_target = 0
 bus = "Effects"
 
 [node name="SmallShoot1" type="AudioStreamPlayer" parent="Sounds/SmallShootCache"]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -288,7 +299,7 @@ mix_target = 0
 bus = "Effects"
 
 [node name="SmallShoot2" type="AudioStreamPlayer" parent="Sounds/SmallShootCache"]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -297,7 +308,7 @@ mix_target = 0
 bus = "Effects"
 
 [node name="SmallShoot3" type="AudioStreamPlayer" parent="Sounds/SmallShootCache"]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -306,7 +317,7 @@ mix_target = 0
 bus = "Effects"
 
 [node name="SmallShoot4" type="AudioStreamPlayer" parent="Sounds/SmallShootCache"]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -315,7 +326,7 @@ mix_target = 0
 bus = "Effects"
 
 [node name="SoundTrackMusic" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
@@ -324,7 +335,7 @@ mix_target = 0
 bus = "Music"
 
 [node name="SoundTrackWaves" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
@@ -334,15 +345,6 @@ bus = "Music"
 _sections_unfolded = [ "Pause" ]
 
 [node name="BattleStart" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 13 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-stream_paused = false
-mix_target = 0
-bus = "Master"
-
-[node name="GameOver" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 14 )
 volume_db = 0.0
 pitch_scale = 1.0
@@ -351,7 +353,7 @@ stream_paused = false
 mix_target = 0
 bus = "Master"
 
-[node name="Three" type="AudioStreamPlayer" parent="Sounds"]
+[node name="GameOver" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 15 )
 volume_db = 0.0
 pitch_scale = 1.0
@@ -360,7 +362,7 @@ stream_paused = false
 mix_target = 0
 bus = "Master"
 
-[node name="Two" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Three" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 16 )
 volume_db = 0.0
 pitch_scale = 1.0
@@ -369,7 +371,7 @@ stream_paused = false
 mix_target = 0
 bus = "Master"
 
-[node name="One" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Two" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 17 )
 volume_db = 0.0
 pitch_scale = 1.0
@@ -378,31 +380,24 @@ stream_paused = false
 mix_target = 0
 bus = "Master"
 
-[node name="ExpGen" parent="." instance=ExtResource( 18 )]
+[node name="One" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 18 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
 
-[node name="World" type="CanvasLayer" parent="."]
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+[node name="ExpGen" parent="." instance=ExtResource( 19 )]
 
-[node name="Spawn_Enemies" parent="World" instance=ExtResource( 19 )]
+[node name="world" type="Node2D" parent="."]
 
-[node name="Square" parent="World" instance=ExtResource( 20 )]
-position = Vector2( 170, 310 )
-speed = 250
+[node name="Spawn_Enemies" parent="world" instance=ExtResource( 20 )]
 
-[node name="Triangle" parent="World" instance=ExtResource( 21 )]
-position = Vector2( 850, 310 )
-speed = 250
-rotation_speed = 6.28319
-max_health = 1
-health = 1
-
-[node name="TileMap" type="TileMap" parent="World"]
+[node name="TileMap" type="TileMap" parent="world"]
 mode = 0
-tile_set = ExtResource( 22 )
+tile_set = ExtResource( 21 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -418,4 +413,7 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -65536, 0, 0, -65535, 6, 0, -65534, 6, 0, -65533, 6, 0, -65532, 12, 0, 0, 1, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 13, 0, 65536, 2, 0, 65537, 8, 0, 65538, 8, 0, 65539, 8, 0, 65540, 14, 0 )
+
+[node name="Triangle" parent="world" instance=ExtResource( 22 )]
+position = Vector2( 462.31, 211.858 )
 

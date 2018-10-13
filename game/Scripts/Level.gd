@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 export var players_alive = 2
 export var used_sound_player = 0

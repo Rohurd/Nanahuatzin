@@ -5,6 +5,7 @@ signal health_changed(player)
 var shoot_count = 0
 
 func _ready():
+	LevelStatus.camera = $Camera
 	LevelStatus.players_living += 1
 	health = 5
 	max_health = 5
