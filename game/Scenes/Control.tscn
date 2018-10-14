@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Control.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/control.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/ControlPosition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/buttonA.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 50.0
+radius = 45.0
 
-[node name="Control" type="Area2D"]
+[node name="Helm" type="Area2D"]
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -27,5 +28,12 @@ _sections_unfolded = [ "shape" ]
 texture = ExtResource( 2 )
 
 [node name="ControlPosition" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -35.9936 )
+position = Vector2( 0, -23.3958 )
+
+[node name="Button" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -50 )
+scale = Vector2( 0.408282, 0.408282 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 

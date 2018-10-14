@@ -17,6 +17,7 @@ func _ready():
 	$HealZone.connect("healed", self, "revive")
 	connect("health_changed", $"/root/Level/HUD/TriangleHealth", "health_changed")
 	emit_signal("health_changed", self)
+	LevelStatus.ship = self
 	
 func health_changed(player):
 	if health > 0:

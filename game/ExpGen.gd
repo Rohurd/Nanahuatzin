@@ -25,6 +25,7 @@ func _ready():
 		add_child(ent)
 		ent.hide()
 		smalls.append(ent)
+	gen_exp_big(Vector2(-200,-200))
 
 func free_again(explosion):
 	explosion.position = Vector2(0,0)

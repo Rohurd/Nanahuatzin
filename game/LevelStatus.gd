@@ -9,3 +9,4 @@ var camera = null
 
 var player = null
 var ship_controller = null
+var ship = null

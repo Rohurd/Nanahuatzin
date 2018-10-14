@@ -8,3 +8,4 @@ func _ready():
 func _process(delta):
 	if controlled_ship != null:
 		controlled_ship.helm($Control.value*delta)
+		controlled_ship.vel = $Control.speed / $Control.speed_max

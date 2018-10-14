@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Shaders/waves.shader" type="Shader" id=1]
+[ext_resource path="res://Sprites/TimeBar/progress.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Water.gd" type="Script" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/topcolor = null
+shader_param/botcolor = null
+shader_param/cutoff = null
+shader_param/xspacing = null
+shader_param/yyspacing = null
+shader_param/yspacing = null
+shader_param/tspacing = null
+shader_param/tyspacing = null
+shader_param/x_trans = null
+shader_param/y_trans = null
+_sections_unfolded = [ "Resource" ]
+
+[node name="Water" type="Sprite"]
+material = SubResource( 1 )
+z_index = -2
+texture = ExtResource( 2 )
+centered = false
+script = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Transform", "Z Index" ]
+

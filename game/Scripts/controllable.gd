@@ -3,6 +3,10 @@ extends Area2D
 var controller = null
 var avatar = null
 var control_position = null
+var button = null
+
+var button_time = 0
+var button_pos = Vector2()
 
 func _ready():
 	self.connect("body_entered", self, "body_entered")
@@ -11,8 +15,12 @@ func _ready():
 	if ctrl_point != null:
 		control_position = position + ctrl_point.position
 		ctrl_point.queue_free()
+	button = $Button
+	if button != null:
+		button_pos = button.position
 		
 func get_control(from):
+	button.hide()
 	avatar = from
 	if control_position != null:
 		print("moving controller")
@@ -28,12 +36,22 @@ func give_up_control():
 func _process(delta):
 	if controller != null:
 		controller.get_inputs(self)
+	else:
+		if button != null:
+			button_time = (delta + button_time)
+			if button_time > 2.0*PI:
+				button_time -= 2.0*PI
+			button.position.y = button_pos.y+ sin(button_time)*10
 		
 func body_entered(body):
+	if controller == null:
+		button.show()
 	body.candidate.append(self)
 	
 func body_exited(body):
 	body.candidate.erase(self)
+	if len(body.candidate) == 0:
+		button.hide()
 	
 func left():
 	pass
