@@ -4,7 +4,7 @@ signal health_changed(player)
 
 var shoot_count = 0
 var vel = 0.5
-export var rotation_resistence = 10
+export var rotation_resistence = 20
 
 func _ready():
 	speed = 100

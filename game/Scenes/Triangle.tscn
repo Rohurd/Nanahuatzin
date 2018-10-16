@@ -86,7 +86,7 @@ speed = 250
 rotation_speed = 6.28319
 max_health = 1
 health = 1
-rotation_resistence = 10
+rotation_resistence = 20
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -1.5708

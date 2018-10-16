@@ -10,10 +10,6 @@ func _ready():
 	_on_screen_resized()
 	LevelStatus.world = $World
 	LevelStatus.ship_controller.controlled_ship = $world/Triangle
-	
-func _process(delta):
-	if Input.is_action_just_pressed("new_player"):
-		$Remapper.new_player($HUD)
 
 func init(difficulty):
 	match difficulty:
