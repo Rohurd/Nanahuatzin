@@ -6,7 +6,6 @@ var controlled_ship = null
 
 func _ready():
 	LevelStatus.ship_controller = self
-	print(LevelStatus.players)
 	var i = 1
 	for player in LevelStatus.players:
 		if player != null:

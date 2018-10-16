@@ -22,7 +22,6 @@ func _ready():
 		button_pos = button.position
 		
 func get_control(from):
-	print(one_action)
 	if one_action:
 		action()
 	else:

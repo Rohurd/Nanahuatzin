@@ -44,7 +44,6 @@ func _input(e):
 				last_axis_value = e.axis_value / abs(e.axis_value)
 		
 		if go_on:
-			print(e)
 			var action = controlls[remapping_i]
 			var mapped = InputMap.get_action_list(action)
 			for mapped_input in mapped:
