@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/buttonA.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Button.gd" type="Script" id=2]
+
+[node name="Button" type="Sprite"]
+visible = false
+position = Vector2( 0, -50 )
+scale = Vector2( 0.408282, 0.408282 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+

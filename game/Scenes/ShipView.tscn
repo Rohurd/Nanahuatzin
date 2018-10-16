@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/ShipView.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/BigShip.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Cannon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Control.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/RedChar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/ctrl_point.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Spawnpoint1.gd" type="Script" id=6]
 
 [node name="ShipView" type="Node2D"]
 script = ExtResource( 1 )
@@ -40,6 +41,33 @@ position = Vector2( 273.092, 311.496 )
 position = Vector2( 200, 85 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="RedChar" parent="." instance=ExtResource( 5 )]
-position = Vector2( 194.533, 245.991 )
+[node name="Spawnpoint1" type="Sprite" parent="."]
+self_modulate = Color( 0.85098, 1, 0, 1 )
+position = Vector2( 185.582, 231.226 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Spawnpoint2" type="Sprite" parent="."]
+self_modulate = Color( 0.85098, 1, 0, 1 )
+position = Vector2( 214.85, 231.226 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Spawnpoint3" type="Sprite" parent="."]
+self_modulate = Color( 0.85098, 1, 0, 1 )
+position = Vector2( 187.009, 257.639 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Spawnpoint4" type="Sprite" parent="."]
+self_modulate = Color( 0.85098, 1, 0, 1 )
+position = Vector2( 211.995, 258.353 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="players" type="Node2D" parent="."]
 

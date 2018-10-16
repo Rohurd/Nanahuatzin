@@ -2,7 +2,6 @@ extends Node
 
 var controlls = ["_up", "_down", "_right", "_left", "_action", "_abort"]
 var index = "1"
-var controlled = null
 
 func get_inputs(controlled):
 	if Input.is_action_pressed(str(index) + "_up"):

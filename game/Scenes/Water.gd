@@ -8,6 +8,15 @@ extends Sprite
 func _ready():
 	get_tree().get_root().connect("size_changed", self, "_on_screen_resized")
 	_on_screen_resized()
+	
+func set_top_color(color):
+	get_material().set_shader_param("topcolor", color)
+	
+func set_bot_color(color):
+	get_material().set_shader_param("botcolor", color)
+	
+func set_cutoff(cutoff):
+	get_material().set_shader_param("cutoff", cutoff)
 
 func _process(delta):
 	if LevelStatus.camera != null:

@@ -21,4 +21,4 @@ func down():
 func _process(delta):
 	._process(delta)
 	value -= value/20.0
-	rotation = (value / 10.0) * PI
+	$Sprite.rotation = (value / 10.0) * PI

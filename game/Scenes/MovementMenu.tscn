@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/MovementMenu.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/autotileset.tres" type="TileSet" id=2]
@@ -7,7 +7,10 @@
 [ext_resource path="res://Scenes/Water.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Font/FiraSans-Bold.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://Scenes/RichTextLabel.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/RedChar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/map.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/NinePatchRect.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/flare.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Spawn.gd" type="Script" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -42,8 +45,20 @@ use_filter = false
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Settings" ]
 
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 57.7073, 38.4855 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 128.499, 62.9602 )
+
 [node name="MenuIsland" type="Node2D"]
 script = ExtResource( 1 )
+bottomcolor = Color( 0.99, 0.87, 0.67, 1 )
+topcolor = Color( 0.329412, 0.152941, 0, 1 )
 
 [node name="Island" type="TileMap" parent="."]
 mode = 0
@@ -132,15 +147,17 @@ _sections_unfolded = [ "tile_set" ]
 
 [node name="Water" parent="." instance=ExtResource( 5 )]
 
+[node name="Players" type="Node2D" parent="."]
+
 [node name="Options" type="RichTextLabel" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 271.0
-margin_top = 263.0
-margin_right = 539.0
-margin_bottom = 314.0
+margin_left = 262.0
+margin_top = 236.0
+margin_right = 530.0
+margin_bottom = 287.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -194,6 +211,71 @@ override_selected_font_color = false
 script = ExtResource( 7 )
 _sections_unfolded = [ "BBCode", "Rect", "Theme", "custom_fonts/normal_font" ]
 
-[node name="RedChar" parent="." instance=ExtResource( 8 )]
-position = Vector2( 496.321, 335.894 )
+[node name="Map" type="NinePatchRect" parent="."]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 548.0
+margin_bottom = 552.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 8 )
+draw_center = false
+region_rect = Rect2( 0, 0, 1920, 1080 )
+patch_margin_left = 212
+patch_margin_top = 210
+patch_margin_right = 216
+patch_margin_bottom = 194
+script = ExtResource( 9 )
+_sections_unfolded = [ "Margin" ]
+
+[node name="Spawn" type="Sprite" parent="."]
+self_modulate = Color( 0.65098, 0.188235, 0.701961, 1 )
+position = Vector2( 770.473, 354.317 )
+scale = Vector2( 2.44897, 2.44897 )
+texture = ExtResource( 10 )
+script = ExtResource( 11 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="play_area" type="Area2D" parent="."]
+position = Vector2( 880.282, 285.685 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="play_area"]
+position = Vector2( 32.0109, -0.52475 )
+shape = SubResource( 4 )
+
+[node name="OptionArea" type="Area2D" parent="."]
+position = Vector2( 317.835, 290.942 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OptionArea"]
+position = Vector2( 5.25876, -33.3054 )
+shape = SubResource( 5 )
+
+[node name="HUDCanvas" type="CanvasLayer" parent="."]
+layer = 9
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 

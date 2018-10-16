@@ -5,6 +5,8 @@ var avatar = null
 var control_position = null
 var button = null
 
+var one_action = false
+
 var button_time = 0
 var button_pos = Vector2()
 
@@ -20,14 +22,17 @@ func _ready():
 		button_pos = button.position
 		
 func get_control(from):
-	button.hide()
-	avatar = from
-	if control_position != null:
-		print("moving controller")
-		avatar.position = control_position
-		avatar.look_at(position)
-	controller = avatar.controller
-	avatar.controller = null
+	print(one_action)
+	if one_action:
+		action()
+	else:
+		button.hide()
+		avatar = from
+		if control_position != null:
+			avatar.position = control_position
+			avatar.look_at(position)
+		controller = avatar.controller
+		avatar.controller = null
 	
 func give_up_control():
 	avatar.controller = controller
