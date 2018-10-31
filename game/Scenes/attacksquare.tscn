@@ -16,7 +16,6 @@ custom_solver_bias = 0.0
 radius = 82.0
 
 [node name="SquareAttack" type="Area2D"]
-
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -29,21 +28,18 @@ _sections_unfolded = [ "Collision" ]
 total_length = 1.0
 tween_length = 0.1
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0, 1, 0.203125, 1 )
 material = SubResource( 1 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility", "material" ]
 
-[node name="Collision" type="CollisionShape2D" parent="." index="1"]
-
+[node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tween" type="Tween" parent="." index="2"]
-
+[node name="Tween" type="Tween" parent="."]
 repeat = false
 playback_process_mode = 1
 playback_speed = 1.0
@@ -53,11 +49,6 @@ playback/speed = 1.0
 _sections_unfolded = [ "playback" ]
 
 [connection signal="area_entered" from="." to="." method="on_collide"]
-
 [connection signal="area_exited" from="." to="." method="on_exit"]
-
 [connection signal="body_entered" from="." to="." method="on_collide"]
-
 [connection signal="body_exited" from="." to="." method="on_exit"]
-
-

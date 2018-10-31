@@ -5,6 +5,7 @@ signal health_changed(player)
 var shoot_count = 0
 var vel = 0.5
 export var rotation_resistence = 20
+var size = 1
 
 func _ready():
 	speed = 100
@@ -18,6 +19,8 @@ func _ready():
 	connect("health_changed", $"/root/Level/HUD/TriangleHealth", "health_changed")
 	emit_signal("health_changed", self)
 	LevelStatus.ship = self
+	var size = $Sprite.texture.get_size()
+	self.size = size.x
 	
 func health_changed(player):
 	if health > 0:
@@ -46,6 +49,19 @@ func get_velocity():
 	if Input.is_action_pressed("triangle_up"):
 		velocity.y -= 1
 	return velocity
+	
+func shooot(origin, direction):
+	origin = origin * self.size
+	origin = origin.rotated(self.rotation - PI/2)
+	direction = direction.rotated(self.rotation - PI/2)
+	origin += self.position
+	var Bullet = load("res://Scenes/Bullet.tscn")
+	var bullet = Bullet.instance()
+	bullet.set_name("bullet")
+	bullet.set_position(origin)
+	bullet.init(direction, "player")
+	get_parent().add_child(bullet)
+	$"/root/Level/Sounds/BigShoot".play()
 
 func shoot():
 	if shoot_count >= 9:

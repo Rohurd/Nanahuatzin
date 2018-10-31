@@ -1,35 +1,36 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/waves.shader" type="Shader" id=2]
 [ext_resource path="res://Sprites/TimeBar/progress.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Water.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/big_text.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/battlemode.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/arrowUp.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/arrowDown.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/arrowLeft.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/arrowRight.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/buttonA.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/buttonB.png" type="Texture" id=13]
-[ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=14]
-[ext_resource path="res://Sounds/tower_explosion.wav" type="AudioStream" id=15]
-[ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=16]
-[ext_resource path="res://Sounds/Bhangra Bass_49_1.ogg" type="AudioStream" id=17]
-[ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=18]
-[ext_resource path="res://Sounds/battle_mode.ogg" type="AudioStream" id=19]
-[ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=20]
-[ext_resource path="res://Sounds/3.ogg" type="AudioStream" id=21]
-[ext_resource path="res://Sounds/2.ogg" type="AudioStream" id=22]
-[ext_resource path="res://Sounds/1.ogg" type="AudioStream" id=23]
-[ext_resource path="res://Scenes/ExpGen.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/Spawn_Enemies.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Scenes/autotileset.tres" type="TileSet" id=27]
-[ext_resource path="res://Scenes/BuildingsTileMap.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Scenes/Enemy1.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Scenes/ShipView.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Font/FiraBold.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Sprites/big_text.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/battlemode.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/arrowUp.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/arrowDown.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/arrowLeft.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/arrowRight.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/buttonA.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/buttonB.png" type="Texture" id=14]
+[ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/tower_explosion.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/enemy_shoot.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/Bhangra Bass_49_1.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/freetousesounds - Bali Tanah Lot.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/battle_mode.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Sounds/3.ogg" type="AudioStream" id=22]
+[ext_resource path="res://Sounds/2.ogg" type="AudioStream" id=23]
+[ext_resource path="res://Sounds/1.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Scenes/ExpGen.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/EnemyGenerator.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Triangle.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/autotileset.tres" type="TileSet" id=28]
+[ext_resource path="res://Scenes/BuildingsTileMap.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/Enemy1.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/ShipView.tscn" type="PackedScene" id=31]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -47,7 +48,7 @@ shader_param/x_trans = null
 shader_param/y_trans = null
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 
 length = 1.0
 loop = false
@@ -65,7 +66,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 
 length = 2.0
 loop = false
@@ -83,7 +84,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="NavigationPolygon" id=6]
+[sub_resource type="NavigationPolygon" id=4]
 
 vertices = PoolVector2Array( 3.00806, -18.605, 5009.41, -8.32495, 1667.66, 312.995, 1467.19, 312.995, 2768.7, 3562.45, 4982.74, 5048.69, 2730.91, 3728.7, 2753.58, 3373.53, 1662.24, 513.462, 2398.42, 3033.48, 2043.25, 3343.31, 2277.51, 3441.54, 2179.27, 3570.01, 1801.43, 3781.6, 1710.75, 3736.26, 1695.63, 3638.02, 1771.2, 3517.11, 16.3413, 5048.69, 1469.9, 518.88, 1217.89, 3166.27, 1086.98, 3488.46, 2035.69, 3917.62, 1839.21, 3932.74, 1763.64, 3290.41, 1884.55, 3214.84, 1997.9, 3237.51, 2693.13, 3600.24, 1831.65, 3124.16, 1718.3, 3169.5, 1499.16, 3056.15, 2640.23, 3811.83, 2640.23, 3993.19, 2511.77, 4136.77, 2511.77, 4280.35, 1381.54, 4335.58, 1650.29, 4310.58, 1718.3, 4401.26, 1092.26, 3630.95, 1145.03, 3662.61, 1150.31, 3884.25, 1400.92, 3169.5, 1975.23, 4439.04, 2028.13, 4507.05, 1213.63, 3372.36, 1139.75, 3451.52, 2292.62, 4476.83, 2315.29, 4363.47, 2383.3, 4310.58 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 1, 5, 6 ), PoolIntArray( 1, 4, 7 ), PoolIntArray( 8, 2, 1, 7, 9 ), PoolIntArray( 10, 11, 12, 13, 14, 15, 16 ), PoolIntArray( 17, 0, 3, 18, 19, 20 ), PoolIntArray( 21, 22, 13, 12 ), PoolIntArray( 10, 16, 23, 24, 25 ), PoolIntArray( 6, 26, 4 ), PoolIntArray( 8, 9, 25, 24, 27, 18 ), PoolIntArray( 18, 27, 28, 29 ), PoolIntArray( 30, 6, 5, 31 ), PoolIntArray( 32, 31, 5, 33 ), PoolIntArray( 34, 35, 36, 17 ), PoolIntArray( 37, 38, 39, 17 ), PoolIntArray( 29, 40, 19, 18 ), PoolIntArray( 36, 41, 42, 17 ), PoolIntArray( 19, 43, 44, 20 ), PoolIntArray( 45, 46, 47, 33, 5 ), PoolIntArray( 45, 5, 17, 42 ), PoolIntArray( 39, 34, 17 ), PoolIntArray( 17, 20, 37 ) ]
@@ -115,7 +116,6 @@ __meta__ = {
 }
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 6
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -139,16 +139,16 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -194.0
-margin_top = -30.0
+margin_top = -35.0
 margin_right = -97.0
-margin_bottom = -15.0
-rect_scale = Vector2( 2, 2 )
+margin_bottom = 2.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 6 )
 text = "0"
 align = 2
 valign = 3
@@ -156,24 +156,24 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = 1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts", "custom_fonts/font", "custom_styles" ]
 
 [node name="Label" type="Label" parent="HUD"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -289.0
-margin_top = -28.0
-margin_right = -249.0
-margin_bottom = -14.0
-rect_scale = Vector2( 2, 2 )
+margin_left = -285.0
+margin_top = -36.0
+margin_right = -159.0
+margin_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 6 )
 text = "Score"
 align = 1
 valign = 1
@@ -181,7 +181,7 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Margin" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
 
 [node name="ModeLabel" type="Control" parent="HUD"]
 editor/display_folded = true
@@ -202,12 +202,12 @@ size_flags_vertical = 1
 
 [node name="build" type="Sprite" parent="HUD/ModeLabel"]
 self_modulate = Color( 1, 1, 1, 0 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="battle" type="Sprite" parent="HUD/ModeLabel"]
 self_modulate = Color( 1, 1, 1, 0 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/ModeLabel"]
@@ -216,8 +216,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/battle = SubResource( 4 )
-anims/build = SubResource( 5 )
+anims/battle = SubResource( 2 )
+anims/build = SubResource( 3 )
 blend_times = [  ]
 
 [node name="MapLabels" type="CenterContainer" parent="HUD"]
@@ -237,33 +237,33 @@ _sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="Up" type="Sprite" parent="HUD/MapLabels"]
 visible = false
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Down" type="Sprite" parent="HUD/MapLabels"]
 visible = false
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Left" type="Sprite" parent="HUD/MapLabels"]
 visible = false
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="Right" type="Sprite" parent="HUD/MapLabels"]
 visible = false
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 
 [node name="A" type="Sprite" parent="HUD/MapLabels"]
 visible = false
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="B" type="Sprite" parent="HUD/MapLabels"]
 visible = false
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 
 [node name="Sounds" type="Node" parent="."]
 editor/display_folded = true
 
 [node name="BigShoot" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = -12.0
 pitch_scale = 1.0
 autoplay = false
@@ -272,7 +272,7 @@ mix_target = 0
 bus = "Effects"
 
 [node name="TowerDestruction" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -284,8 +284,8 @@ bus = "Effects"
 editor/display_folded = true
 
 [node name="SmallShoot0" type="AudioStreamPlayer" parent="Sounds/SmallShootCache"]
-stream = ExtResource( 16 )
-volume_db = 0.0
+stream = ExtResource( 17 )
+volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
@@ -293,8 +293,8 @@ mix_target = 0
 bus = "Effects"
 
 [node name="SmallShoot1" type="AudioStreamPlayer" parent="Sounds/SmallShootCache"]
-stream = ExtResource( 16 )
-volume_db = 0.0
+stream = ExtResource( 17 )
+volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
@@ -302,8 +302,8 @@ mix_target = 0
 bus = "Effects"
 
 [node name="SmallShoot2" type="AudioStreamPlayer" parent="Sounds/SmallShootCache"]
-stream = ExtResource( 16 )
-volume_db = 0.0
+stream = ExtResource( 17 )
+volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
@@ -311,8 +311,8 @@ mix_target = 0
 bus = "Effects"
 
 [node name="SmallShoot3" type="AudioStreamPlayer" parent="Sounds/SmallShootCache"]
-stream = ExtResource( 16 )
-volume_db = 0.0
+stream = ExtResource( 17 )
+volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
@@ -320,7 +320,7 @@ mix_target = 0
 bus = "Effects"
 
 [node name="SmallShoot4" type="AudioStreamPlayer" parent="Sounds/SmallShootCache"]
-stream = ExtResource( 16 )
+stream = ExtResource( 17 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -329,7 +329,7 @@ mix_target = 0
 bus = "Effects"
 
 [node name="SoundTrackMusic" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 17 )
+stream = ExtResource( 18 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
@@ -338,7 +338,7 @@ mix_target = 0
 bus = "Music"
 
 [node name="SoundTrackWaves" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 18 )
+stream = ExtResource( 19 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
@@ -348,62 +348,74 @@ bus = "Music"
 _sections_unfolded = [ "Pause" ]
 
 [node name="BattleStart" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 19 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-stream_paused = false
-mix_target = 0
-bus = "Master"
-
-[node name="GameOver" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 20 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
 mix_target = 0
-bus = "Master"
+bus = "Effects"
 
-[node name="Three" type="AudioStreamPlayer" parent="Sounds"]
+[node name="GameOver" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 21 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
 mix_target = 0
-bus = "Master"
+bus = "Effects"
 
-[node name="Two" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Three" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 22 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
 mix_target = 0
-bus = "Master"
+bus = "Effects"
 
-[node name="One" type="AudioStreamPlayer" parent="Sounds"]
+[node name="Two" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 23 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
 mix_target = 0
-bus = "Master"
+bus = "Effects"
 
-[node name="ExpGen" parent="." instance=ExtResource( 24 )]
+[node name="One" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 24 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Effects"
+
+[node name="ExpGen" parent="." instance=ExtResource( 25 )]
 
 [node name="world" type="Node2D" parent="."]
 
-[node name="Spawn_Enemies" parent="world" instance=ExtResource( 25 )]
+[node name="EnemyGenerator" parent="world" instance=ExtResource( 26 )]
+position = Vector2( 2187.06, 945.628 )
 
-[node name="Triangle" parent="world" instance=ExtResource( 26 )]
+[node name="EnemyGenerator2" parent="world" instance=ExtResource( 26 )]
+position = Vector2( 3244.73, 513.747 )
+
+[node name="EnemyGenerator3" parent="world" instance=ExtResource( 26 )]
+position = Vector2( 796.323, 1692.61 )
+
+[node name="EnemyGenerator4" parent="world" instance=ExtResource( 26 )]
+position = Vector2( 4227.12, 1632.16 )
+
+[node name="enemies" type="Node2D" parent="world"]
+
+[node name="Triangle" parent="world" instance=ExtResource( 27 )]
 position = Vector2( 1374.21, 312.349 )
 
 [node name="TileMap2" type="TileMap" parent="world"]
 mode = 0
-tile_set = ExtResource( 27 )
+tile_set = ExtResource( 28 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -423,7 +435,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="TileMap" type="TileMap" parent="world"]
 mode = 0
-tile_set = ExtResource( 27 )
+tile_set = ExtResource( 28 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -441,20 +453,27 @@ format = 1
 tile_data = PoolIntArray( 65611, 2, 196615, 65612, 2, 262149, 131146, 6, 0, 131148, 2, 327682, 196683, 2, 196615, 196684, 2, 327685, 327703, 1, 2, 327704, 1, 3, 327705, 1, 5, 327737, 1, 2, 327738, 1, 5, 393239, 1, 131074, 393240, 1, 131076, 393241, 1, 65541, 393261, 1, 2, 393262, 1, 5, 393272, 1, 2, 393273, 1, 196609, 393274, 1, 131077, 458775, 1, 196610, 458776, 1, 196611, 458777, 1, 196613, 458797, 1, 131074, 458798, 1, 196608, 458799, 1, 5, 458807, 1, 2, 458808, 1, 196609, 458809, 1, 65539, 458810, 1, 65541, 524321, 4, 0, 524333, 1, 131074, 524334, 1, 65539, 524335, 1, 131077, 524342, 1, 2, 524343, 1, 196609, 524344, 1, 65539, 524345, 1, 131076, 524346, 1, 131077, 589869, 1, 65538, 589870, 1, 65539, 589871, 1, 196608, 589872, 1, 5, 589876, 1, 2, 589877, 1, 4, 589878, 1, 196609, 589879, 1, 65539, 589880, 1, 65539, 589881, 1, 131072, 589882, 1, 196613, 655405, 1, 131074, 655406, 1, 65539, 655407, 1, 131075, 655408, 1, 196608, 655409, 1, 3, 655410, 1, 3, 655411, 1, 3, 655412, 1, 196609, 655413, 1, 65539, 655414, 1, 131075, 655415, 1, 131072, 655416, 1, 196612, 655417, 1, 196613, 720928, 4, 0, 720941, 1, 196610, 720942, 1, 131073, 720943, 1, 131075, 720944, 1, 131076, 720945, 1, 65539, 720946, 1, 131075, 720947, 1, 65540, 720948, 1, 131075, 720949, 1, 65540, 720950, 1, 131072, 720951, 1, 196613, 786478, 1, 196610, 786479, 1, 327682, 786480, 1, 327680, 786481, 1, 131073, 786482, 1, 131076, 786483, 1, 131072, 786484, 1, 196611, 786485, 1, 196611, 786486, 1, 196613, 851997, 4, 0, 852017, 1, 196610, 852018, 1, 196612, 852019, 1, 196613, 1245250, 1, 2, 1245251, 1, 4, 1245252, 1, 5, 1310786, 1, 131074, 1310787, 1, 65539, 1310788, 1, 196608, 1310789, 1, 3, 1310790, 1, 4, 1310791, 1, 3, 1310792, 1, 5, 1376322, 1, 196610, 1376323, 1, 131073, 1376324, 1, 65540, 1376325, 1, 131076, 1376326, 1, 131075, 1376327, 1, 65539, 1376328, 1, 196608, 1376329, 1, 5, 1441853, 10, 0, 1441859, 1, 196610, 1441860, 1, 196611, 1441861, 1, 196612, 1441862, 1, 131073, 1441863, 1, 131076, 1441864, 1, 65540, 1441865, 1, 196608, 1441866, 1, 5, 1507371, 1, 2, 1507372, 1, 5, 1507398, 1, 131074, 1507399, 1, 65539, 1507400, 1, 131076, 1507401, 1, 131075, 1507402, 1, 65541, 1572872, 7, 0, 1572907, 1, 131074, 1572908, 1, 131077, 1572923, 2, 262148, 1572924, 2, 262151, 1572934, 1, 131074, 1572935, 1, 65540, 1572936, 1, 65539, 1572937, 1, 65539, 1572938, 1, 131077, 1638443, 1, 131074, 1638444, 1, 131077, 1638459, 2, 6, 1638460, 4, 0, 1638470, 1, 131074, 1638471, 1, 131075, 1638472, 1, 65540, 1638473, 1, 131072, 1638474, 1, 196613, 1703979, 1, 65538, 1703980, 1, 131077, 1703995, 2, 327684, 1703996, 2, 262151, 1704005, 1, 2, 1704006, 1, 196609, 1704007, 1, 65540, 1704008, 1, 131072, 1704009, 1, 196613, 1769480, 7, 0, 1769481, 2, 4, 1769515, 1, 131074, 1769516, 1, 196608, 1769517, 1, 4, 1769518, 1, 5, 1769533, 7, 0, 1769534, 6, 0, 1769540, 1, 2, 1769541, 1, 196609, 1769542, 1, 131075, 1769543, 1, 65540, 1769544, 1, 131077, 1835051, 1, 131074, 1835052, 1, 65540, 1835053, 1, 65539, 1835054, 1, 196608, 1835055, 1, 5, 1835076, 1, 131074, 1835077, 1, 65539, 1835078, 1, 131075, 1835079, 1, 131072, 1835080, 1, 196613, 1900586, 1, 2, 1900587, 1, 196609, 1900588, 1, 131075, 1900589, 1, 131075, 1900590, 1, 65539, 1900591, 1, 196608, 1900592, 1, 5, 1900612, 1, 196610, 1900613, 1, 196612, 1900614, 1, 196612, 1900615, 1, 196613, 1966109, 2, 5, 1966121, 1, 2, 1966122, 1, 196609, 1966123, 1, 131075, 1966124, 1, 65539, 1966125, 1, 65539, 1966126, 1, 65539, 1966127, 1, 65539, 1966128, 1, 131077, 2031656, 1, 2, 2031657, 1, 196609, 2031658, 1, 131076, 2031659, 1, 131072, 2031660, 1, 196611, 2031661, 1, 327680, 2031662, 1, 196611, 2031663, 1, 196612, 2031664, 1, 196613, 2097189, 1, 2, 2097190, 1, 3, 2097191, 1, 3, 2097192, 1, 196609, 2097193, 1, 131076, 2097194, 1, 131072, 2097195, 1, 196613, 2162724, 1, 2, 2162725, 1, 196609, 2162726, 1, 65540, 2162727, 1, 65539, 2162728, 1, 65539, 2162729, 1, 131072, 2162730, 1, 196613, 2228249, 2, 5, 2228260, 1, 196610, 2228261, 1, 196612, 2228262, 1, 131073, 2228263, 1, 65539, 2228264, 1, 65540, 2228265, 1, 131077, 2293798, 1, 196610, 2293799, 1, 196611, 2293800, 1, 131073, 2293801, 1, 196608, 2293802, 1, 5, 2359336, 1, 131074, 2359337, 1, 131075, 2359338, 1, 196608, 2359339, 1, 5, 2424872, 1, 196610, 2424873, 1, 131073, 2424874, 1, 131075, 2424875, 1, 65541, 2490409, 1, 196610, 2490410, 1, 131073, 2490411, 1, 196608, 2490412, 1, 5, 2555946, 1, 196610, 2555947, 1, 131073, 2555948, 1, 196608, 2555949, 1, 5, 2621483, 1, 196610, 2621484, 1, 327680, 2621485, 1, 196613, 2752520, 1, 2, 2752521, 1, 4, 2752522, 1, 5, 2818055, 1, 2, 2818056, 1, 196609, 2818057, 1, 131072, 2818058, 1, 196613, 2883590, 1, 2, 2883591, 1, 196609, 2883592, 1, 131075, 2883593, 1, 131077, 2949126, 1, 196610, 2949127, 1, 131073, 2949128, 1, 131072, 2949129, 1, 196613, 3014663, 1, 196610, 3014664, 1, 196613, 3276823, 2, 262148, 3276824, 2, 131078, 3276825, 2, 7, 3276826, 2, 262149, 3276835, 2, 262148, 3276836, 2, 262147, 3276837, 2, 7, 3276838, 2, 262149, 3342356, 2, 262148, 3342357, 2, 7, 3342358, 2, 7, 3342359, 2, 327685, 3342362, 2, 6, 3342371, 2, 65542, 3342374, 2, 327684, 3342375, 2, 262149, 3407892, 2, 6, 3407897, 2, 262148, 3407898, 2, 327685, 3407907, 2, 327684, 3407908, 2, 262149, 3407911, 2, 327684, 3407912, 2, 262149, 3473428, 2, 6, 3473433, 2, 6, 3473444, 2, 6, 3473448, 2, 6, 3473474, 8, 0, 3473475, 9, 0, 3538963, 2, 262148, 3538964, 2, 327685, 3538967, 6, 0, 3538969, 2, 262150, 3538980, 2, 6, 3538984, 2, 6, 3539010, 9, 0, 3539011, 9, 0, 3604499, 2, 6, 3604516, 2, 262150, 3604520, 2, 6, 3670035, 2, 6, 3670040, 9, 0, 3670053, 6, 0, 3670056, 2, 6, 3735571, 2, 6, 3735591, 2, 262148, 3735592, 2, 327685, 3801107, 2, 6, 3801127, 2, 6, 3866643, 2, 327684, 3866644, 2, 262149, 3866647, 8, 0, 3866662, 4, 0, 3866663, 2, 327682, 3932180, 2, 327682, 3932182, 8, 0, 3932183, 9, 0, 3932186, 4, 0, 3932199, 2, 327682, 3997716, 2, 6, 3997719, 8, 0, 3997734, 2, 262148, 3997735, 2, 327685, 4063252, 2, 327684, 4063253, 2, 262149, 4063270, 2, 6, 4128789, 2, 6, 4128802, 6, 0, 4128805, 2, 262148, 4128806, 2, 327685, 4194325, 2, 327684, 4194326, 2, 262149, 4194332, 7, 0, 4194341, 2, 6, 4259862, 2, 327684, 4259863, 2, 7, 4259864, 2, 7, 4259865, 2, 7, 4259866, 2, 262149, 4259875, 2, 262148, 4259876, 2, 131078, 4259877, 2, 327685, 4325402, 2, 327684, 4325403, 2, 7, 4325404, 2, 327687, 4325405, 2, 7, 4325406, 2, 7, 4325407, 2, 262147, 4325408, 2, 262147, 4325409, 2, 7, 4325410, 2, 131079, 4325411, 2, 327685, 4456504, 2, 262148, 4456505, 2, 7, 4456506, 2, 196613, 4456510, 6, 0, 4456511, 6, 0, 4456515, 2, 131077, 4456516, 2, 262149, 4522040, 2, 6, 4522046, 6, 0, 4522052, 2, 327684, 4522053, 2, 262149, 4587523, 0, 0, 4587524, 0, 2, 4587576, 2, 6, 4587589, 2, 327684, 4587590, 2, 262149, 4653059, 0, 65536, 4653060, 0, 65539, 4653061, 0, 1, 4653062, 0, 2, 4653112, 2, 327684, 4653113, 2, 7, 4653114, 2, 262151, 4653126, 2, 327686, 4718595, 0, 131072, 4718596, 0, 4, 4718597, 0, 262147, 4718598, 0, 65538, 4718662, 2, 262150, 4784132, 0, 131072, 4784133, 0, 131073, 4784134, 0, 131074 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Buildings" parent="world" instance=ExtResource( 28 )]
+[node name="Buildings" parent="world" instance=ExtResource( 29 )]
 tile_data = PoolIntArray( 131147, 3, 0, 393240, 26, 0, 524344, 5, 0, 655391, 4, 0, 655393, 19, 0, 720946, 24, 3, 720947, 24, 2, 720948, 24, 0, 1376327, 1, 0, 1441852, 3, 0, 1441863, 0, 131076, 1507399, 0, 0, 1572935, 0, 0, 1572936, 3, 0, 1638409, 2, 0, 1638471, 0, 0, 1703943, 26, 1, 1704007, 0, 131075, 1769479, 26, 3, 1835052, 10, 0, 1900571, 24, 2, 1900588, 11, 0, 2031644, 24, 0, 2031645, 24, 3, 2097176, 8, 0, 2162712, 9, 0, 2162713, 31, 131074, 2162714, 31, 1, 2162715, 31, 65538, 2162727, 25, 2, 2162728, 25, 3, 2228263, 25, 0, 2228264, 25, 3, 2883592, 26, 2, 3342373, 10, 0, 3407893, 3, 0, 3407894, 3, 0, 3407896, 7, 0, 3407909, 11, 0, 3473429, 3, 0, 3473430, 3, 0, 3473445, 0, 131076, 3473446, 8, 0, 3538965, 26, 2, 3538981, 0, 0, 3538982, 9, 0, 3604500, 26, 0, 3604501, 26, 3, 3604502, 26, 2, 3604504, 3, 0, 3604517, 0, 131075, 3670037, 26, 2, 3670038, 26, 1, 3670039, 3, 0, 3670052, 18, 0, 3670054, 3, 0, 3735574, 12, 0, 3735588, 25, 2, 3735589, 25, 2, 3735590, 25, 2, 3801110, 13, 0, 3801112, 0, 131076, 3801123, 3, 0, 3801125, 25, 3, 3801126, 25, 2, 3866648, 0, 0, 3866660, 21, 0, 3866661, 21, 0, 3932184, 0, 0, 3932196, 14, 0, 3997720, 0, 0, 3997721, 3, 0, 3997732, 15, 0, 4063256, 0, 0, 4063265, 0, 131074, 4063266, 0, 1, 4063267, 0, 1, 4063268, 0, 65538, 4128791, 3, 0, 4128792, 0, 131075, 4128793, 3, 0, 4128794, 0, 131074, 4128795, 0, 1, 4128796, 0, 1, 4128797, 0, 1, 4128798, 0, 1, 4128799, 0, 65538, 4128800, 3, 0, 4128804, 3, 0, 4194331, 25, 1, 4194333, 25, 1, 4194334, 17, 0, 4259867, 25, 3, 4259868, 25, 2, 4259869, 25, 2, 4259870, 16, 0, 4456514, 25, 0, 4522041, 21, 0, 4522042, 20, 0, 4587577, 20, 0, 4587578, 20, 0, 4653118, 6, 0 )
 
 [node name="Navigation2D" type="Navigation2D" parent="world"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="world/Navigation2D"]
-navpoly = SubResource( 6 )
+navpoly = SubResource( 4 )
 enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Enemy" parent="world" instance=ExtResource( 29 )]
+[node name="Enemy" parent="world" instance=ExtResource( 30 )]
 position = Vector2( 1892.06, 485.409 )
 motion/sync_to_physics = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = 5
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -510,7 +529,7 @@ shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
 _sections_unfolded = [ "Render Target", "Rendering" ]
 
-[node name="ShipView" parent="CanvasLayer/ViewportContainer/Viewport" instance=ExtResource( 30 )]
+[node name="ShipView" parent="CanvasLayer/ViewportContainer/Viewport" instance=ExtResource( 31 )]
 
 [node name="Players" type="Node" parent="."]
 

@@ -36,6 +36,59 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Cannon" parent="." instance=ExtResource( 3 )]
 position = Vector2( 273.092, 311.496 )
+t = 0.0
+cooldown = 1
+
+[node name="Line2D" type="Line2D" parent="Cannon"]
+points = PoolVector2Array( -0.353058, -0.333557, 141.777, -0.16037 )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = 212662768
+sharp_limit = 2.0
+round_precision = 8
+
+[node name="Cannon2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 275.948, 208.698 )
+t = 0.0
+cooldown = 1
+
+[node name="Line2D" type="Line2D" parent="Cannon2"]
+points = PoolVector2Array( -0.584747, -0.389236, 134.055, -1.16885 )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = 208704352
+sharp_limit = 2.0
+round_precision = 8
+
+[node name="Cannon3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 138.779, 209.208 )
+rotation = 3.14159
+_sections_unfolded = [ "Transform" ]
+t = 0.0
+cooldown = 1
+
+[node name="Line2D" type="Line2D" parent="Cannon3"]
+points = PoolVector2Array( -0.46521, -0.200134, 144.541, 0.442596 )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = 1147142144
+sharp_limit = 2.0
+round_precision = 8
+
+[node name="Cannon4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 128.746, 313.602 )
+rotation = 3.14159
+_sections_unfolded = [ "Transform" ]
+t = 0.0
+cooldown = 1
+
+[node name="Line2D" type="Line2D" parent="Cannon4"]
+points = PoolVector2Array( 0.773438, -0.66925, 140.154, -0.809265 )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = 212392032
+sharp_limit = 2.0
+round_precision = 8
 
 [node name="Control" parent="." instance=ExtResource( 4 )]
 position = Vector2( 200, 85 )

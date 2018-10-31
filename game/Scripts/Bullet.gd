@@ -3,6 +3,7 @@ extends Area2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+var speed = 500
 var velocity = Vector2()
 var owner_group = ""
 
@@ -18,8 +19,9 @@ func init(velo, group):
 	pass
 
 func _physics_process(delta):
-	position.x += velocity.x
-	position.y += velocity.y
+	var vel = velocity * speed
+	position.x += vel.x * delta
+	position.y += vel.y * delta
 	
 func destroy():
 	$"/root/Level/ExpGen".gen_exp_small(global_position)

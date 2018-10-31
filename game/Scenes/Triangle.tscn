@@ -92,11 +92,12 @@ rotation_resistence = 20
 rotation = -1.5708
 scale = Vector2( 0.45, 0.45 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" type="Particles2D" parent="."]
 z_index = 3

@@ -21,8 +21,7 @@ func _on_screen_resized():
 	var projectResolution = get_viewport().size
 	find_node("Water").scale = Vector2(projectResolution.x / 300, projectResolution.y / 50)
 	
-func play_small_sound(db):
-	$Sounds/SmallShootCache.get_child(used_sound_player).volume_db = db
+func play_small_sound():
 	$Sounds/SmallShootCache.get_child(used_sound_player).play()
 	used_sound_player += 1
 	if used_sound_player > 4:

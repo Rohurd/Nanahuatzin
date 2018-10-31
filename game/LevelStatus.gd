@@ -11,6 +11,7 @@ var player = null
 var ship_controller = null
 var ship = null
 var difficulty = 0
+var enemy_level = 0
 
 var player_count = null setget , _get_player_count
 
