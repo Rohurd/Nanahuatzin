@@ -1,7 +1,139 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scenes/Remapper.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/panel_beigeLight.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Remapper.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/buttonLong_beige_pressed.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/buttonLong_beige.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/arrowUp.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/arrowDown.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/arrowLeft.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/arrowRight.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/buttonA.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/buttonB.png" type="Texture" id=10]
 
-[node name="Remapper" type="Node"]
-script = ExtResource( 1 )
+[sub_resource type="StyleBoxTexture" id=1]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 190, 45 )
+margin_left = 0.0
+margin_right = 0.0
+margin_top = 0.0
+margin_bottom = 0.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 190, 49 )
+margin_left = 0.0
+margin_right = 0.0
+margin_top = 0.0
+margin_bottom = 0.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+
+[node name="Remapper" type="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -165.0
+margin_right = 220.0
+margin_bottom = 165.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 100, 100 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+script = ExtResource( 2 )
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 150.0
+margin_top = 270.0
+margin_right = 120.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 120, 30 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Back"
+flat = false
+align = 1
+
+[node name="MapLabels" type="CenterContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="Up" type="Sprite" parent="MapLabels"]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="Down" type="Sprite" parent="MapLabels"]
+visible = false
+texture = ExtResource( 6 )
+
+[node name="Left" type="Sprite" parent="MapLabels"]
+visible = false
+texture = ExtResource( 7 )
+
+[node name="Right" type="Sprite" parent="MapLabels"]
+visible = false
+texture = ExtResource( 8 )
+
+[node name="A" type="Sprite" parent="MapLabels"]
+visible = false
+texture = ExtResource( 9 )
+
+[node name="B" type="Sprite" parent="MapLabels"]
+visible = false
+texture = ExtResource( 10 )
 

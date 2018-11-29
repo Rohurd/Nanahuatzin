@@ -7,7 +7,8 @@ func _ready():
 	$Bg/Center/Vbox/Effects/EffectsSlider.connect("gui_input", self, "_on_EffectsVolumeSlider_gui_input")
 	$Bg/Center/Vbox/Music/MusicVolumeSlider.connect("value_changed", self, "_on_music_value_changed")
 	$Bg/Center/Vbox/Music/MusicVolumeSlider.connect("gui_input", self, "_on_MusicVolumeSlider_gui_input")
-	$Back.connect("pressed", self, "_on_close")
+	$Bg/Center/Vbox/Back.connect("pressed", self, "_on_close")
+	$Bg/Center/Vbox/Remapper.connect("pressed", self, "_on_remapper_pressed")
 	$Bg/Center/Vbox/Difficulty/Difficulty.connect("value_changed", self, "_on_difficulty_value_changed")
 	
 func _on_effects_value_changed(value):
@@ -34,5 +35,10 @@ func _on_EffectsVolumeSlider_gui_input(ev):
 	if (ev is InputEventMouseButton) && !ev.pressed && (ev.button_index == BUTTON_LEFT):
 		$EffectsTestSound.play()
 		
+func _on_remapper_pressed():
+	var remapper = load("res://Scenes/Remapper.tscn")
+	var remapper_instance = remapper.instance()
+	add_child(remapper_instance)
+	
 func _on_close():
 	queue_free()

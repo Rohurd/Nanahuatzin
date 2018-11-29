@@ -9,14 +9,27 @@ var remapping_i = 0
 var last_axis = null
 var last_axis_value = null
 
-var hud = null
+func _ready():
+	var buttons = []
+	for i in range(0,len(LevelStatus.players)):
+		var button = $BackButton.duplicate()
+		button.text = "Player " + str(i+1)
+		button.rect_position = Vector2(20 + (i % 3) * 130, 20 + (i/3) * 40)
+		button.show()
+		button.connect("pressed", self, "remap", [i])
+		add_child(button)
+		buttons.append(button)
+	pass
+	
+	$BackButton.connect("pressed", self, "back_button_pressed")
 
-func remap(i, icon_container):
+func remap(i):
 	remapping = i
+	remapping_i = 0
+	$MapLabels.get_child(0).show()
 	
 
-func new_player(hud):
-	self.hud = hud
+func new_player():
 	var Controller = load("res://Scenes/PlayerController.tscn")
 	var controller = Controller.instance()
 	remapping_controller = controller
@@ -26,7 +39,7 @@ func new_player(hud):
 	controller.index = 1
 	LevelStatus.player.controller = controller
 	
-	hud.find_node("MapLabels").get_child(0).show()
+	$MapLabels.get_child(0).show()
 
 func _input(e):
 	if remapping != null:
@@ -44,16 +57,21 @@ func _input(e):
 				last_axis_value = e.axis_value / abs(e.axis_value)
 		
 		if go_on:
-			var action = controlls[remapping_i]
+			var action = str(remapping) + controlls[remapping_i]
+			if !InputMap.has_action(action):
+				InputMap.add_action(action)
 			var mapped = InputMap.get_action_list(action)
 			for mapped_input in mapped:
 				InputMap.action_erase_event(action, mapped_input)
 			InputMap.action_add_event(action, e)
-			hud.find_node("MapLabels").get_child(remapping_i).hide()
+			$MapLabels.get_child(remapping_i).hide()
 			remapping_i += 1
 			if remapping_i >= len(controlls):
 				remapping = false
 				remapping_i = 0
 				remapping_controller = null
 			else:
-				hud.find_node("MapLabels").get_child(remapping_i).show()
+				$MapLabels.get_child(remapping_i).show()
+
+func back_button_pressed():
+	queue_free()

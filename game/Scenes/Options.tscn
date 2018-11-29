@@ -52,6 +52,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 12.0
+margin_right = 4.0
+margin_bottom = 12.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -59,10 +63,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Rect" ]
 
 [node name="Bg" type="MarginContainer" parent="."]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -97,10 +99,8 @@ patch_margin_left = 20
 patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 20
-_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
 
 [node name="Center" type="CenterContainer" parent="Bg"]
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -114,7 +114,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 use_top_left = false
-_sections_unfolded = [ "Size Flags" ]
 
 [node name="Vbox" type="VBoxContainer" parent="Bg/Center"]
 anchor_left = 0.0
@@ -122,9 +121,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 150.0
-margin_top = 100.0
+margin_top = 96.0
 margin_right = 450.0
-margin_bottom = 300.0
+margin_bottom = 303.0
 rect_min_size = Vector2( 300, 200 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -134,7 +133,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 10
 alignment = 0
-_sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="Label" type="Label" parent="Bg/Center/Vbox"]
 anchor_left = 0.0
@@ -156,7 +154,6 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="Effects" type="Control" parent="Bg/Center/Vbox"]
 editor/display_folded = true
@@ -174,7 +171,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
 
 [node name="EffectLabel" type="Label" parent="Bg/Center/Vbox/Effects"]
 anchor_left = 0.0
@@ -195,7 +191,6 @@ text = "Effects Volume"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "Size Flags", "custom_colors", "custom_fonts" ]
 
 [node name="EffectNumber" type="Label" parent="Bg/Center/Vbox/Effects"]
 anchor_left = 0.0
@@ -218,7 +213,6 @@ align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "Rect", "custom_colors" ]
 
 [node name="EffectsSlider" type="HSlider" parent="Bg/Center/Vbox/Effects"]
 anchor_left = 1.0
@@ -250,7 +244,6 @@ scrollable = true
 tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags" ]
 
 [node name="Music" type="Container" parent="Bg/Center/Vbox"]
 editor/display_folded = true
@@ -268,7 +261,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-_sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
 
 [node name="MusicVolumeLabel" type="Label" parent="Bg/Center/Vbox/Music"]
 anchor_left = 0.0
@@ -289,7 +281,6 @@ text = "Music Volume"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Grow Direction", "Margin", "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="MusicVolumeValueLabel" type="Label" parent="Bg/Center/Vbox/Music"]
 anchor_left = 0.0
@@ -312,7 +303,6 @@ text = "100"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts/font" ]
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Bg/Center/Vbox/Music"]
 anchor_left = 1.0
@@ -344,7 +334,6 @@ scrollable = true
 tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
-_sections_unfolded = [ "Anchor", "Grow Direction", "Rect" ]
 
 [node name="Difficulty" type="HSplitContainer" parent="Bg/Center/Vbox"]
 editor/display_folded = true
@@ -382,7 +371,6 @@ size_flags_vertical = 1
 split_offset = 0
 collapsed = false
 dragger_visibility = 1
-_sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="DifficultyLabel" type="Label" parent="Bg/Center/Vbox/Difficulty/HSplitContainer"]
 anchor_left = 0.0
@@ -403,7 +391,6 @@ text = "Difficulty"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="DifficultyValueLabel" type="Label" parent="Bg/Center/Vbox/Difficulty/HSplitContainer"]
 anchor_left = 0.0
@@ -426,7 +413,6 @@ align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Difficulty" type="HSlider" parent="Bg/Center/Vbox/Difficulty"]
 anchor_left = 0.0
@@ -458,17 +444,41 @@ scrollable = true
 tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
-_sections_unfolded = [ "Anchor", "Grow Direction", "Rect" ]
 
-[node name="Back" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -60.0
-margin_top = -232.0
-margin_right = 60.0
-margin_bottom = -202.0
+[node name="Remapper" type="Button" parent="Bg/Center/Vbox"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 137.0
+margin_right = 300.0
+margin_bottom = 167.0
+rect_min_size = Vector2( 120, 30 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Change Key Bindings"
+flat = false
+align = 1
+
+[node name="Back" type="Button" parent="Bg/Center/Vbox"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 177.0
+margin_right = 300.0
+margin_bottom = 207.0
 rect_min_size = Vector2( 120, 30 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -486,7 +496,6 @@ group = null
 text = "Back"
 flat = false
 align = 1
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_styles", "custom_styles/hover", "custom_styles/normal", "custom_styles/pressed" ]
 
 [node name="MusicTestSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
@@ -496,7 +505,6 @@ autoplay = false
 stream_paused = false
 mix_target = 0
 bus = "Music"
-_sections_unfolded = [ "Pause", "stream" ]
 
 [node name="EffectsTestSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

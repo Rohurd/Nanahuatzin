@@ -13,13 +13,4 @@ var ship = null
 var difficulty = 0
 var enemy_level = 0
 
-var player_count = null setget , _get_player_count
-
-var players = [null, null, null, null]
-
-func _get_player_count():
-	var i = 0
-	for player in players:
-		if player != null:
-			i += 1
-	return i
+var players = []

@@ -9,6 +9,7 @@ var Char = preload("res://Scenes/RedChar.tscn")
 const RedChar = preload("res://Scripts/RedChar.gd")
 
 var players_ready = 0
+var max_players = 15
 
 func _ready():
 	$Collision.hide()
@@ -27,8 +28,11 @@ func _on_screen_resized():
 	find_node("Water").scale = Vector2(projectResolution.x / 300, projectResolution.y / 50)
 
 func _process(delta):
-	for i in range(4):
-		if Input.is_action_just_pressed(str(i) + "_action"):
+	
+	if Input.is_action_just_pressed("new_player"):
+		var i = len(LevelStatus.players)
+		if i <= max_players:
+			LevelStatus.players.append(null)
 			if LevelStatus.players[i] == null:
 				var player = PlayerController.instance()
 				player.index = i
@@ -55,8 +59,8 @@ func _on_option_area_enter(player):
 func _on_play_area_enter(player):
 	if player is RedChar:
 		players_ready += 1
-	var player_count = LevelStatus.player_count
-	if player_count > 0  and players_ready == player_count:
+	var player_count = len(LevelStatus.players)
+	if player_count > 0  and players_ready == len(LevelStatus.players):
 		start_game()
 		
 func _on_play_area_exit(player):
