@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=40 format=2]
+[gd_resource type="TileSet" load_steps=42 format=2]
 
 [ext_resource path="res://Sprites/tiles_sheet.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/empty.png" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -191,6 +192,12 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="NavigationPolygon" id=39]
+
+vertices = PoolVector2Array( 0, 0, 0, 64, 64, 64, 64, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [  ]
 
 [resource]
 
@@ -534,4 +541,15 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 10/navigation_offset = Vector2( 0, 0 )
 10/shapes = [  ]
 10/z_index = 0
+11/name = "empty.png 11"
+11/texture = ExtResource( 2 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 0, 64, 64 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/navigation = SubResource( 39 )
+11/shapes = [  ]
+11/z_index = 0
 

@@ -6,6 +6,8 @@ var player_pos = Vector2(0,0)
 var path = []
 var traveling = false
 
+var temp_i_remove_when_commit = 0
+
 func _ready():
 	add_to_group("enemy")
 	speed = 100
@@ -17,11 +19,17 @@ func get_path_to(target):
 	return path
 
 func _physics_process(delta):
+	temp_i_remove_when_commit += 1
+	temp_i_remove_when_commit %= 60
+	if temp_i_remove_when_commit != 0:
+		return
 	if not traveling:
 		player_pos = $"/root/Level/world/Triangle".position
 		path = get_path_to(player_pos)
 		traveling = true
-	target_pos = path[1]
+	target_pos = self.position
+	if len(path) > 0:
+		target_pos = path[1]
 	if (target_pos - position).length() < 20:
 		traveling = false
 	if (player_pos - position).length() < 300:

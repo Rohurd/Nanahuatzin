@@ -507,5 +507,4 @@ points = PoolVector2Array( 64, 0, 64, 64, 0, 64, 0, 0 )
 31/navigation_offset = Vector2( 0, 0 )
 31/shapes = [  ]
 31/z_index = 0
-_sections_unfolded = [ "11" ]
 

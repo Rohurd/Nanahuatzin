@@ -16,7 +16,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Material" ]
 
 [node name="Water" parent="." instance=ExtResource( 2 )]
 
@@ -61,7 +60,6 @@ group = null
 text = "Start"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
 
 [node name="Options" type="Button" parent="Main"]
 anchor_left = 0.5
@@ -86,7 +84,6 @@ group = null
 text = "Options"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect" ]
 
 [node name="BackgroundLeft" type="Panel" parent="."]
 anchor_left = 0.0
@@ -119,7 +116,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Margin" ]
 
 [node name="InstructionsLeft" type="RichTextLabel" parent="."]
 anchor_left = 0.0
@@ -161,7 +157,6 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "BBCode", "Margin", "custom_fonts" ]
 
 [node name="InstructionsRight" type="RichTextLabel" parent="."]
 anchor_left = 1.0
@@ -203,7 +198,6 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "BBCode", "Margin" ]
 
 [connection signal="pressed" from="Main/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Main/Options" to="." method="_on_Options_pressed"]

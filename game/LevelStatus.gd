@@ -6,6 +6,7 @@ var max_enemies = 0
 var paused = true
 var world = null
 var camera = null
+var size = Vector2(100, 100)
 
 var player = null
 var ship_controller = null
