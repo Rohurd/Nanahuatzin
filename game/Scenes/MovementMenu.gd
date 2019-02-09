@@ -12,19 +12,13 @@ var players_ready = 0
 
 func _ready():
 	$Collision.hide()
-	get_tree().get_root().connect("size_changed", self, "_on_screen_resized")
-	_on_screen_resized()
-	$Water.set_bot_color(bottomcolor)
-	$Water.set_top_color(topcolor)
-	$Water.set_cutoff(0.9)
+	var water = $LazyWater
+	water.set_bot_color(bottomcolor)
+	water.set_top_color(topcolor)
+	water.set_cutoff(0.9)
 	$play_area.connect("body_entered", self, "_on_play_area_enter")
-	$play_area.connect("body_exited", self, "_on_play_area_edit")
+	$play_area.connect("body_exited", self, "_on_play_area_exit")
 	$OptionArea.connect("body_entered", self, "_on_option_area_enter")
-	
-
-func _on_screen_resized():
-	var projectResolution = get_viewport().size
-	find_node("Water").scale = Vector2(projectResolution.x / 300, projectResolution.y / 50)
 
 func _process(delta):
 	for i in range(4):
@@ -57,7 +51,7 @@ func _on_play_area_enter(player):
 		players_ready += 1
 	var player_count = LevelStatus.player_count
 	if player_count > 0  and players_ready == player_count:
-		start_game()
+		call_deferred("start_game")
 		
 func _on_play_area_exit(player):
 	if player is RedChar:

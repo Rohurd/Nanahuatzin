@@ -13,7 +13,7 @@ var button_pos = Vector2()
 func _ready():
 	self.connect("body_entered", self, "body_entered")
 	self.connect("body_exited", self, "body_exited")
-	var ctrl_point = $ControlPosition
+	var ctrl_point = find_node("ControlPosition")
 	if ctrl_point != null:
 		control_position = position + ctrl_point.position
 		ctrl_point.queue_free()
@@ -48,14 +48,16 @@ func _process(delta):
 			button.position.y = button_pos.y+ sin(button_time)*10
 		
 func body_entered(body):
-	if controller == null:
-		button.show()
-	body.candidate.append(self)
+	if "candidate" in body:
+		if controller == null:
+			button.show()
+		body.candidate.append(self)
 	
 func body_exited(body):
-	body.candidate.erase(self)
-	if len(body.candidate) == 0:
-		button.hide()
+	if "candidate" in body:
+		body.candidate.erase(self)
+		if len(body.candidate) == 0:
+			button.hide()
 	
 func left():
 	pass

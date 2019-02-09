@@ -19,10 +19,7 @@ func get_path_to(target):
 	return path
 
 func _physics_process(delta):
-	temp_i_remove_when_commit += 1
-	temp_i_remove_when_commit %= 60
-	if temp_i_remove_when_commit != 0:
-		return
+	return
 	if not traveling:
 		player_pos = $"/root/Level/world/Triangle".position
 		path = get_path_to(player_pos)

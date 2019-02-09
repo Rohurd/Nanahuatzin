@@ -4,62 +4,50 @@
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 64, 0, 64, 64, 0, 64, 0, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 64, 0, 64, 64, 0, 64, 0, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=12]
 
-custom_solver_bias = 0.0
 points = PoolVector2Array( 64, 0, 64, 64, 0, 64, 0, 0 )
 
 [resource]

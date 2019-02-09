@@ -6,19 +6,17 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 
-render_priority = 0
 shader = ExtResource( 1 )
 shader_param/topcolor = Plane( 0.99, 0, 0, 0 )
 shader_param/botcolor = Plane( 0.99, 0.88, 0.67, 0 )
-shader_param/cutoff = null
-shader_param/xspacing = null
-shader_param/yyspacing = null
-shader_param/yspacing = null
-shader_param/tspacing = null
-shader_param/tyspacing = null
-shader_param/x_trans = null
-shader_param/y_trans = null
-_sections_unfolded = [ "Resource", "shader_param" ]
+shader_param/cutoff = 0.8
+shader_param/xspacing = 50.0
+shader_param/yyspacing = 15.0
+shader_param/yspacing = 50.0
+shader_param/tspacing = 0.4
+shader_param/tyspacing = 0.4
+shader_param/x_trans = 0.0
+shader_param/y_trans = 0.0
 
 [node name="Water" type="Sprite"]
 material = SubResource( 1 )
@@ -26,5 +24,4 @@ z_index = -2
 texture = ExtResource( 2 )
 centered = false
 script = ExtResource( 3 )
-_sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
